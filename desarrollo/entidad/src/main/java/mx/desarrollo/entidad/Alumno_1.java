@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author STARDUST
  */
+//CAMBIO
 @Entity
 @Table(name = "alumno")
 @XmlRootElement
