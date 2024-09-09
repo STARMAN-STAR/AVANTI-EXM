@@ -134,5 +134,5 @@ public class Alumno_1 implements Serializable {
     public String toString() {
         return "mx.desarrollo.entidad.Alumno_1[ idalumno=" + idalumno + " ]";
     }
-    
+    // Mi primer commint
 }
