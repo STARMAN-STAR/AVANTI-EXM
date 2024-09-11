@@ -13,9 +13,9 @@ import java.io.Serializable;
  *
  * @author PC
  */
-@Named(value = "altaProfesor")
+@Named(value = "Profesor")
 @SessionScoped
-public class AltaProfesorUI implements Serializable {
+public class ProfesorUI implements Serializable {
     private String nombres;
     private String apellidos;
     private String rfc;
@@ -57,7 +57,7 @@ public class AltaProfesorUI implements Serializable {
         this.unidadesDeAprendizaje = unidadesDeAprendizaje;
     }
     
-    public AltaProfesorUI() {
+    public ProfesorUI() {
         
     }
     
