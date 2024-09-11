@@ -25,7 +25,8 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author STARDUST
  */
-//CAMBIO
+//CAMBIO GENERAL BRANCH
+
 @Entity
 @Table(name = "alumno")
 @XmlRootElement
