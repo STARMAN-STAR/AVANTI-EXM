@@ -14,15 +14,14 @@ and open the template in the editor.
     <h:head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
         <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
-
-        <title>Alta de profesores</title>
+        <title>Consulta de Unidades</title>
     </h:head>
-    
+        
     <h:body>
         <div class="contenedorPrincipal">
             <div class="leftSide-contenedor">
                 <div class="leftSide">
-                    <a href="#">
+                    <a href="altaProfesor.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bxs-contact' style="font-size: 3em; color: white;"/>
                         <h3>Alta de Profesores</h3>
@@ -50,7 +49,7 @@ and open the template in the editor.
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="login.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bxs-exit' style="font-size: 3em; color: white;"/>
                         <h3>Cerrar sesión</h3>
@@ -58,42 +57,34 @@ and open the template in the editor.
                     </a>
                 </div>
             </div>
-            
-        <h:form class="Forma">
-            <h2>Alta de Profesores</h2>
-            
-            <div class="subForma">
+        
+            <h:form class="Forma">
+                <h2>Consulta de Unidades De Aprendizaje</h2>
                 
-            <div class="campo">
-                <p:outputLabel for="nombreProfesor" class="labelText">Nombre del profesor</p:outputLabel>
-                <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value="#{Profesor.nombres}"/>
-            </div>
+                <p:dataTable class="tabla" scrollable='true'>
+                    <p:column width="20%">
+                        <f:facet name="header">ID</f:facet>
+                        
+                    </p:column>
+                    <p:column width="50%">
+                        <f:facet name="header">Unidad de Aprendizaje</f:facet>
+                        
+                    </p:column>
+                    <p:column width="10%">
+                        <f:facet name="header">Horas de Clase</f:facet>
+                        
+                    </p:column>
+                    <p:column width="10%">
+                        <f:facet name="header">Horas de Taller</f:facet>
+                        
+                    </p:column>
+                    <p:column width="10%">
+                        <f:facet name="header">Horas de Laboratorio</f:facet>
+                        
+                    </p:column>
+                </p:dataTable>
                 
-            <div class="campo">
-                <p:outputLabel for="apellidoProfesor" class="labelText">Apellido del profesor</p:outputLabel>
-                <p:inputText id="apellidoProfesor" class="textInput" autocomplete="false" value="#{Profesor.apellidos}"/>
-            </div>
-                
-            <div class="campo">
-                <p:outputLabel for="rfcProfesor" class="labelText">RFC del profesor</p:outputLabel>
-                <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value="#{Profesor.rfc}"/>
-            </div>
-                
-            <div class="campo">
-                <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
-                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="#{Profesor.unidadesDeAprendizaje}">
-                </p:selectCheckboxMenu>
-            </div>
-                
-            </div>
-            
-            <div class="botones">
-                <p:commandButton value="Aceptar" disabled="false" class="boton col-1" />
-                <p:commandButton value="Cancelar" class="boton col-2"/>
-            </div>
-            
-        </h:form>
+            </h:form>
         </div>
-       
     </h:body>
 </html>
