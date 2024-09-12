@@ -67,5 +67,6 @@ public class ProfesorUI implements Serializable {
         this.rfc = rfc;
         this.unidadesDeAprendizaje = unidadesDeAprendizaje;
     }
+    //aaaaaa
     
 }
