@@ -31,6 +31,6 @@ public class ServiceFacadeLocator {
             return facadeUsuario;
         }
     }
-    public static void getInstanceFacadeUsuario(){
+    public static void getInstanceFacadeProfesor(){
     }
 }
