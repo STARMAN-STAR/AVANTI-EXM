@@ -16,57 +16,8 @@ import java.io.Serializable;
 @Named(value = "Profesor")
 @SessionScoped
 public class ProfesorUI implements Serializable {
-    private String nombres;
-    private String apellidos;
-    private String rfc;
-    private String[] unidadesDeAprendizaje;
-    
-    public void subirProfesor() {
-        
-    }
-    
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getRfc() {
-        return rfc;
-    }
-
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
-    }
-
-    public String[] getUnidadesDeAprendizaje() {
-        return unidadesDeAprendizaje;
-    }
-
-    public void setUnidadesDeAprendizaje(String[] unidadesDeAprendizaje) {
-        this.unidadesDeAprendizaje = unidadesDeAprendizaje;
-    }
     
     public ProfesorUI() {
         
     }
-    
-    public void AltaProfesorUI(String nombres, String apellidos, String rfc, String[] unidadesDeAprendizaje) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.rfc = rfc;
-        this.unidadesDeAprendizaje = unidadesDeAprendizaje;
-    }
-    //aaaaaa
-    
 }

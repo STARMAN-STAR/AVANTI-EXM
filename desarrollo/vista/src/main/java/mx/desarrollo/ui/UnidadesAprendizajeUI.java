@@ -16,49 +16,6 @@ import java.io.Serializable;
 @Named(value = "unidadesAprendizajeUI")
 @SessionScoped
 public class UnidadesAprendizajeUI implements Serializable {
-    private String unidadAprendizaje;
-    private int horasClase;
-    private int horasTaller;
-    private int horasLaboratorio;
-
-    public UnidadesAprendizajeUI(String unidadAprendizaje, int horasClase, int horasTaller, int horasLaboratorio) {
-        this.unidadAprendizaje = unidadAprendizaje;
-        this.horasClase = horasClase;
-        this.horasTaller = horasTaller;
-        this.horasLaboratorio = horasLaboratorio;
-    }
-    
-    public String getUnidadAprendizaje() {
-        return unidadAprendizaje;
-    }
-
-    public void setUnidadAprendizaje(String unidadAprendizaje) {
-        this.unidadAprendizaje = unidadAprendizaje;
-    }
-
-    public int getHorasClase() {
-        return horasClase;
-    }
-
-    public void setHorasClase(int horasClase) {
-        this.horasClase = horasClase;
-    }
-
-    public int getHorasTaller() {
-        return horasTaller;
-    }
-
-    public void setHorasTaller(int horasTaller) {
-        this.horasTaller = horasTaller;
-    }
-
-    public int getHorasLaboratorio() {
-        return horasLaboratorio;
-    }
-
-    public void setHorasLaboratorio(int horasLaboratorio) {
-        this.horasLaboratorio = horasLaboratorio;
-    }
     
     public UnidadesAprendizajeUI() {
     }
