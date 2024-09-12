@@ -17,8 +17,7 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
  * @author STARDUST
  */
 public class LoginHelper implements Serializable {
-     public Usuario_1 Login(String correo, String password){
-        return ServiceFacadeLocator.getInstanceFacadeUsuario().login(password, correo);
+     public void Login(String correo, String password){
     }
     
 }
