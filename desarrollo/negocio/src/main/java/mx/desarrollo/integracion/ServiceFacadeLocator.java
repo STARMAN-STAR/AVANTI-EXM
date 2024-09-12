@@ -4,33 +4,26 @@
  * and open the template in the editor.
  */
 package mx.desarrollo.integracion;
-import mx.desarrollo.facade.FacadeAlumno;
-import mx.desarrollo.facade.FacadeUsuario;
+import mx.desarrollo.facade.*;
+
 /**
  *
  * @author STARDUST
  */
 public class ServiceFacadeLocator {
-       private static FacadeAlumno facadeAlumno;
-    private static FacadeUsuario facadeUsuario;
-    
-    public static FacadeAlumno getInstanceFacadeAlumno() {
-        if (facadeAlumno == null) {
-            facadeAlumno = new FacadeAlumno();
-            return facadeAlumno;
-        } else {
-            return facadeAlumno;
-        }
+    private static final FacadeAdministrator facadeAdministrator = new FacadeAdministrator();
+    private static final FacadeLearningUnit facadeLearningUnit = new FacadeLearningUnit();
+    private static final FacadeTeacher facadeTeacher = new FacadeTeacher();
+
+    public static FacadeAdministrator getInstanceFacadeAdministrator() {
+        return facadeAdministrator;
     }
-    
-    public static FacadeUsuario getInstanceFacadeUsuario() {
-        if (facadeUsuario == null) {
-            facadeUsuario = new FacadeUsuario();
-            return facadeUsuario;
-        } else {
-            return facadeUsuario;
-        }
+
+    public static FacadeLearningUnit getInstanceLearningUnit() {
+        return facadeLearningUnit;
     }
-    public static void getInstanceFacadeUsuario(){
+
+    public static FacadeTeacher getInstanceFacadeTeacher() {
+        return facadeTeacher;
     }
 }
