@@ -12,14 +12,5 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
  */
 public class test {
      public static void main(String[] args) {
-        Usuario_1 usuario = new Usuario_1();
-        
-        usuario = ServiceFacadeLocator.getInstanceFacadeUsuario().login("contra123","francisco.reyes.parra@uabc.edu.mx");
-        
-        if(usuario.getIdusuario() != null){
-            System.out.println("Login exitoso con el correo: " + usuario.getCorreo());
-        }else{
-            System.out.println("No se encontro registro");
-        }
     }
 }

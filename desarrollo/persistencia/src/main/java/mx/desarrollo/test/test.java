@@ -5,23 +5,8 @@
  */
 package mx.desarrollo.test;
 
-/**
- *
- * @author STARDUST
- */
-import java.util.ArrayList;
-import java.util.List;
-import mx.desarrollo.DAO.UsuarioDAO;
-import mx.desarrollo.entidad.Usuario_1;
-
 public class test {
-        public static void main(String[] args) {
-        List<Usuario_1> listaUsuarios = new ArrayList();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        listaUsuarios = usuarioDao.findAll();
-        
-        for(Usuario_1 us : listaUsuarios){
-            System.out.println("Correo: " + us.getCorreo());
-        }
+    public static void main(String[] args) {
+
     }
 }
