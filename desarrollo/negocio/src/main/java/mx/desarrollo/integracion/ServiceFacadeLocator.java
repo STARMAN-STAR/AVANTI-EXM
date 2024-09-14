@@ -11,12 +11,12 @@ import mx.desarrollo.facade.*;
  * @author STARDUST
  */
 public class ServiceFacadeLocator {
-    private static final FacadeAdministrator facadeAdministrator = new FacadeAdministrator();
+    private static FacadeAdministrator facadeAdministrator;
     private static final FacadeLearningUnit facadeLearningUnit = new FacadeLearningUnit();
     private static final FacadeTeacher facadeTeacher = new FacadeTeacher();
 
     public static FacadeAdministrator getInstanceFacadeAdministrator() {
-        return facadeAdministrator;
+        return (facadeAdministrator == null) ? facadeAdministrator = new FacadeAdministrator() : facadeAdministrator;
     }
 
     public static FacadeLearningUnit getInstanceLearningUnit() {

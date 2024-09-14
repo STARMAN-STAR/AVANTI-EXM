@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package test;
-import mx.desarrollo.entidad.Usuario_1;
+import mx.desarrollo.delegate.DelegateAdministrator;
+import mx.desarrollo.entidad.Administrator;
+import mx.desarrollo.facade.FacadeAdministrator;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
 /**
  *
@@ -12,5 +14,12 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
  */
 public class test {
      public static void main(String[] args) {
-    }
+//       Administrator admin=  new DelegateAdministrator().auth("admin3@example.com", "password789");   
+//       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
+       
+// Administrator admin=  new FacadeAdministrator().auth("admin3@example.com", "password789");   
+//       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
+      Administrator admin=  ServiceFacadeLocator.getInstanceFacadeAdministrator().auth("admin3@example.com", "password789");   
+       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
+     }
 }
