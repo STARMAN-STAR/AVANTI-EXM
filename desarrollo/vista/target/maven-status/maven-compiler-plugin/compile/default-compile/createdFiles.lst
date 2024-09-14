@@ -1,2 +1,4 @@
 mx\desarrollo\helper\LoginHelper.class
+mx\desarrollo\ui\ProfesorUI.class
 mx\desarrollo\ui\LoginBeanUI.class
+mx\desarrollo\ui\UnidadesAprendizajeUI.class

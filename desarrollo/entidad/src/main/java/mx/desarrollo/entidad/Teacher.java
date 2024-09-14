@@ -1,10 +1,11 @@
 package mx.desarrollo.entidad;
 
+import java.io.Serializable;
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
-public class    Teacher {
+public class  Teacher implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
