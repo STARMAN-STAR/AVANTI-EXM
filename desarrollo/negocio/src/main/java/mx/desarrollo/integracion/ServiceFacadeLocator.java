@@ -12,18 +12,19 @@ import mx.desarrollo.facade.*;
  */
 public class ServiceFacadeLocator {
     private static FacadeAdministrator facadeAdministrator;
-    private static final FacadeLearningUnit facadeLearningUnit = new FacadeLearningUnit();
-    private static final FacadeTeacher facadeTeacher = new FacadeTeacher();
+    private static FacadeLearningUnit facadeLearningUnit;
+    private static FacadeTeacher facadeTeacher;
 
     public static FacadeAdministrator getInstanceFacadeAdministrator() {
         return (facadeAdministrator == null) ? facadeAdministrator = new FacadeAdministrator() : facadeAdministrator;
     }
 
     public static FacadeLearningUnit getInstanceLearningUnit() {
-        return facadeLearningUnit;
+        return (facadeLearningUnit == null) ? facadeLearningUnit = new FacadeLearningUnit() : facadeLearningUnit;
     }
 
     public static FacadeTeacher getInstanceFacadeTeacher() {
-        return facadeTeacher;
+        return (facadeTeacher == null) ? facadeTeacher = new FacadeTeacher() : facadeTeacher;
+
     }
 }

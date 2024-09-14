@@ -4,19 +4,17 @@
  * and open the template in the editor.
  */
 package mx.desarrollo.helper;
-
-import java.io.IOException;
 import java.io.Serializable;
-import javax.faces.context.FacesContext;
-import mx.desarrollo.entidad.Alumno;
+import java.util.List;
+import mx.desarrollo.entidad.Learningunit;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
 
 /**
  *
  * @author STARDUST
  */
-public class LoginHelper implements Serializable {
-     public void Login(String correo, String password){
-         ServiceFacadeLocator.getInstanceFacadeAdministrator().auth(correo, password);
+public class learningUnitHelper implements Serializable{
+    public List<Learningunit> getLearningUnits(){
+        return ServiceFacadeLocator.getInstanceLearningUnit().getAllLearningUnit();
     }
 }

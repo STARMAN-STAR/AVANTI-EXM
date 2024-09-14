@@ -16,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -50,7 +51,8 @@ public class Alumno implements Serializable {
     @Basic(optional = false)
     @Column(name = "apellidos")
     private String apellidos;
-   
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAlumno")
+    private List<Usuario> usuarioList;
 
     public Alumno() {
     }
@@ -98,7 +100,15 @@ public class Alumno implements Serializable {
         this.apellidos = apellidos;
     }
 
-   
+    @XmlTransient
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
+    }
+
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

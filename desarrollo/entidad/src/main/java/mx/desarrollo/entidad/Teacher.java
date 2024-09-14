@@ -6,8 +6,9 @@
 package mx.desarrollo.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,10 +16,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,8 +34,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Teacher.findByFirstName", query = "SELECT t FROM Teacher t WHERE t.firstName = :firstName")
     , @NamedQuery(name = "Teacher.findByLastName", query = "SELECT t FROM Teacher t WHERE t.lastName = :lastName")
     , @NamedQuery(name = "Teacher.findByRfc", query = "SELECT t FROM Teacher t WHERE t.rfc = :rfc")
-    , @NamedQuery(name = "Teacher.findByCreatedAt", query = "SELECT t FROM Teacher t WHERE t.createdAt = :createdAt")
-    , @NamedQuery(name = "Teacher.findByUpdatedAt", query = "SELECT t FROM Teacher t WHERE t.updatedAt = :updatedAt")
     , @NamedQuery(name = "Teacher.findByUsername", query = "SELECT t FROM Teacher t WHERE t.username = :username")
     , @NamedQuery(name = "Teacher.findByPassword", query = "SELECT t FROM Teacher t WHERE t.password = :password")})
 public class Teacher implements Serializable {
@@ -55,19 +54,13 @@ public class Teacher implements Serializable {
     @Column(name = "rfc")
     private String rfc;
     @Basic(optional = false)
-    @Column(name = "createdAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "updatedAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
-    @Basic(optional = false)
     @Column(name = "username")
     private String username;
     @Basic(optional = false)
     @Column(name = "password")
     private String password;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacherId")
+    private List<Teacherlearningunit> teacherlearningunitList;
 
     public Teacher() {
     }
@@ -76,13 +69,11 @@ public class Teacher implements Serializable {
         this.id = id;
     }
 
-    public Teacher(Integer id, String firstName, String lastName, String rfc, Date createdAt, Date updatedAt, String username, String password) {
+    public Teacher(Integer id, String firstName, String lastName, String rfc, String username, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.rfc = rfc;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
         this.username = username;
         this.password = password;
     }
@@ -119,22 +110,6 @@ public class Teacher implements Serializable {
         this.rfc = rfc;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -149,6 +124,15 @@ public class Teacher implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @XmlTransient
+    public List<Teacherlearningunit> getTeacherlearningunitList() {
+        return teacherlearningunitList;
+    }
+
+    public void setTeacherlearningunitList(List<Teacherlearningunit> teacherlearningunitList) {
+        this.teacherlearningunitList = teacherlearningunitList;
     }
 
     @Override

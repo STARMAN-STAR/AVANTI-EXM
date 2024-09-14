@@ -19,7 +19,6 @@ public class ProfesorUI implements Serializable {
     private String nombres;
     private String apellidos;
     private String rfc;
-    private String[] unidadesDeAprendizaje;
     
     public void subirProfesor() {
         

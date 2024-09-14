@@ -6,7 +6,6 @@
 package mx.desarrollo.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -32,9 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Administrator.findById", query = "SELECT a FROM Administrator a WHERE a.id = :id")
     , @NamedQuery(name = "Administrator.findByUsername", query = "SELECT a FROM Administrator a WHERE a.username = :username")
     , @NamedQuery(name = "Administrator.findByPassword", query = "SELECT a FROM Administrator a WHERE a.password = :password")
-    , @NamedQuery(name = "Administrator.findByEmail", query = "SELECT a FROM Administrator a WHERE a.email = :email")
-    , @NamedQuery(name = "Administrator.findByCreatedAt", query = "SELECT a FROM Administrator a WHERE a.createdAt = :createdAt")
-    , @NamedQuery(name = "Administrator.findByUpdatedAt", query = "SELECT a FROM Administrator a WHERE a.updatedAt = :updatedAt")})
+    , @NamedQuery(name = "Administrator.findByEmail", query = "SELECT a FROM Administrator a WHERE a.email = :email")})
 public class Administrator implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,14 +47,6 @@ public class Administrator implements Serializable {
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @Column(name = "createdAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "updatedAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
 
     public Administrator() {
     }
@@ -68,13 +55,11 @@ public class Administrator implements Serializable {
         this.id = id;
     }
 
-    public Administrator(Integer id, String username, String password, String email, Date createdAt, Date updatedAt) {
+    public Administrator(Integer id, String username, String password, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -107,22 +92,6 @@ public class Administrator implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     @Override

@@ -6,16 +6,23 @@ import java.util.List;
 public class DelegateLearningUnit {
     
     public void saveLearnUnit(Learningunit learningunit){
-        ServiceLocator.getInstanceLearningUnitDAO().save(learningunit);
+        if(find(learningunit.getName()) == null){
+            ServiceLocator.getInstanceLearningUnitDAO().save(learningunit);
+        }else{
+            System.out.println("LEARNING UNIT");
+        }
     }
     
-    public void deleteLearningUnit(Learningunit learninigunit){
-        ServiceLocator.getInstanceLearningUnitDAO().delete(learninigunit);
+    public void deleteLearningUnit(String name){
+        ServiceLocator.getInstanceLearningUnitDAO().delete(find(name));
     }
     
     public Learningunit find(String name){
-        List<Learningunit> LearningUnits = ServiceLocator.getInstanceLearningUnitDAO().executeQuery("SELECT * FROM desarrollo.LearningUnit WHERE name = '"+name+"';");
-        return LearningUnits.get(0);
+       for(Learningunit unit : ServiceLocator.getInstanceLearningUnitDAO().findAll())
+          if(unit.getName().equals(name))
+              return unit;
+      
+      return null;
     }
     
     public List<Learningunit> getAllLearningUnit(){

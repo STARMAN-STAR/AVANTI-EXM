@@ -6,7 +6,6 @@
 package mx.desarrollo.entidad;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -33,9 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Learningunit.findByName", query = "SELECT l FROM Learningunit l WHERE l.name = :name")
     , @NamedQuery(name = "Learningunit.findByClassHours", query = "SELECT l FROM Learningunit l WHERE l.classHours = :classHours")
     , @NamedQuery(name = "Learningunit.findByWorkshopHours", query = "SELECT l FROM Learningunit l WHERE l.workshopHours = :workshopHours")
-    , @NamedQuery(name = "Learningunit.findByLaboratoryHours", query = "SELECT l FROM Learningunit l WHERE l.laboratoryHours = :laboratoryHours")
-    , @NamedQuery(name = "Learningunit.findByCreatedAt", query = "SELECT l FROM Learningunit l WHERE l.createdAt = :createdAt")
-    , @NamedQuery(name = "Learningunit.findByUpdatedAt", query = "SELECT l FROM Learningunit l WHERE l.updatedAt = :updatedAt")})
+    , @NamedQuery(name = "Learningunit.findByLaboratoryHours", query = "SELECT l FROM Learningunit l WHERE l.laboratoryHours = :laboratoryHours")})
 public class Learningunit implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,14 +51,6 @@ public class Learningunit implements Serializable {
     @Basic(optional = false)
     @Column(name = "laboratory_hours")
     private int laboratoryHours;
-    @Basic(optional = false)
-    @Column(name = "createdAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-    @Basic(optional = false)
-    @Column(name = "updatedAt")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
 
     public Learningunit() {
     }
@@ -72,14 +59,12 @@ public class Learningunit implements Serializable {
         this.id = id;
     }
 
-    public Learningunit(Integer id, String name, int classHours, int workshopHours, int laboratoryHours, Date createdAt, Date updatedAt) {
+    public Learningunit(Integer id, String name, int classHours, int workshopHours, int laboratoryHours) {
         this.id = id;
         this.name = name;
         this.classHours = classHours;
         this.workshopHours = workshopHours;
         this.laboratoryHours = laboratoryHours;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -120,22 +105,6 @@ public class Learningunit implements Serializable {
 
     public void setLaboratoryHours(int laboratoryHours) {
         this.laboratoryHours = laboratoryHours;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     @Override

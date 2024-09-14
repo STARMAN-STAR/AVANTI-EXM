@@ -5,10 +5,14 @@
  */
 package mx.desarrollo.ui;
 
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import mx.desarrollo.entidad.Learningunit;
+import mx.desarrollo.helper.learningUnitHelper;
+import javax.annotation.PostConstruct;
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import javax.inject.Named;
+import java.util.List;
 /**
  *
  * @author PC
@@ -16,51 +20,20 @@ import java.io.Serializable;
 @Named(value = "unidadesAprendizajeUI")
 @SessionScoped
 public class UnidadesAprendizajeUI implements Serializable {
-    private String unidadAprendizaje;
-    private int horasClase;
-    private int horasTaller;
-    private int horasLaboratorio;
+    private List<Learningunit> learningunits;
+//    private Learningunit learningunit''
+    private learningUnitHelper helper;
 
-    public UnidadesAprendizajeUI(String unidadAprendizaje, int horasClase, int horasTaller, int horasLaboratorio) {
-        this.unidadAprendizaje = unidadAprendizaje;
-        this.horasClase = horasClase;
-        this.horasTaller = horasTaller;
-        this.horasLaboratorio = horasLaboratorio;
-    }
-    
-    public String getUnidadAprendizaje() {
-        return unidadAprendizaje;
-    }
-
-    public void setUnidadAprendizaje(String unidadAprendizaje) {
-        this.unidadAprendizaje = unidadAprendizaje;
-    }
-
-    public int getHorasClase() {
-        return horasClase;
-    }
-
-    public void setHorasClase(int horasClase) {
-        this.horasClase = horasClase;
-    }
-
-    public int getHorasTaller() {
-        return horasTaller;
-    }
-
-    public void setHorasTaller(int horasTaller) {
-        this.horasTaller = horasTaller;
-    }
-
-    public int getHorasLaboratorio() {
-        return horasLaboratorio;
-    }
-
-    public void setHorasLaboratorio(int horasLaboratorio) {
-        this.horasLaboratorio = horasLaboratorio;
-    }
-    
     public UnidadesAprendizajeUI() {
+        learningunits = new ArrayList();
+    }
+    @PostConstruct
+    public void init(){
+        learningunits = helper.getLearningUnits();
+    }
+    
+    public List<Learningunit> getUnidadAprendizaje() {
+        return learningunits;
     }
     
 }
