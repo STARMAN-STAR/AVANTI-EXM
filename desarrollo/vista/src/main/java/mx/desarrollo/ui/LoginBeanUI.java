@@ -13,7 +13,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import mx.desarrollo.entidad.Usuario_1;
+import mx.desarrollo.entidad.Administrator;
 import mx.desarrollo.helper.LoginHelper;
 
 /**
@@ -24,7 +24,7 @@ import mx.desarrollo.helper.LoginHelper;
 @SessionScoped
 public class LoginBeanUI implements Serializable{
   private LoginHelper loginHelper;
-    private Usuario_1 usuario;
+    private Administrator admin;
     
     public LoginBeanUI() {
         loginHelper = new LoginHelper();
@@ -32,19 +32,19 @@ public class LoginBeanUI implements Serializable{
 
     @PostConstruct
     public void init(){
-        usuario= new Usuario_1();
+        admin= new Administrator();
     }
 
      public void login() throws IOException{
         String appURL = "/index.xhtml";
         // los atributos de usuario vienen del xhtml 
-        Usuario_1 us= new Usuario_1();
-        us.setIdusuario(0);
-        loginHelper.Login(usuario.getCorreo(), usuario.getContrasena());
-          if(us != null && us.getIdusuario()!=null){
+        Administrator us= new Administrator();
+        us.setId(0);
+        loginHelper.Login(admin.getEmail(), admin.getPassword());
+          if(us != null && us.getId()!=null){
             // asigno el usuario encontrado al usuario de esta clase para que 
             // se muestre correctamente en la pagina de informacion
-            usuario=us;
+            admin=us;
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + appURL);
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));          
@@ -54,12 +54,12 @@ public class LoginBeanUI implements Serializable{
     
     /* getters y setters*/
 
-    public Usuario_1 getUsuario() {
-        return usuario;
+    public Administrator getUsuario() {
+        return admin;
     }
 
-    public void setUsuario(Usuario_1 usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Administrator admin) {
+        this.admin = admin;
     }
 }
     
