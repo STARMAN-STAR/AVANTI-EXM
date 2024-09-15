@@ -5,9 +5,7 @@
  */
 package mx.desarrollo.helper;
 
-import java.io.IOException;
 import java.io.Serializable;
-import javax.faces.context.FacesContext;
 import mx.desarrollo.entidad.Administrator;
 import mx.desarrollo.entidad.Teacher;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
