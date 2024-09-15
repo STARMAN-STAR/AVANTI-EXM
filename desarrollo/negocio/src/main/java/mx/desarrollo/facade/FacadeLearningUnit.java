@@ -15,6 +15,9 @@ public class FacadeLearningUnit {
         return delegateLearningUnit.getAllLearningUnit();
     }
     
+    public List<String> getNamesLearningUnits(){
+        return delegateLearningUnit.getAllNamesLearningUnits();
+    }
     public Learningunit find(String name){
         return delegateLearningUnit.find(name);
     }

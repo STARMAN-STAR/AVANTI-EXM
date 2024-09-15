@@ -1,4 +1,5 @@
 package mx.desarrollo.delegate;
+import java.util.ArrayList;
 import mx.desarrollo.integracion.ServiceLocator;
 import mx.desarrollo.entidad.Learningunit;
 import java.util.List;
@@ -29,4 +30,10 @@ public class DelegateLearningUnit {
         return ServiceLocator.getInstanceLearningUnitDAO().findAll();
     }
     
+    public List<String> getAllNamesLearningUnits(){
+        List<String> names= new ArrayList<>();
+        for(Learningunit lu : ServiceLocator.getInstanceLearningUnitDAO().findAll())
+            names.add(lu.getName());
+        return names;
+    }
 }

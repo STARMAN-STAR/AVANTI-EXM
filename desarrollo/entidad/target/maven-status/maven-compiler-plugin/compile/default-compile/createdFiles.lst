@@ -1,8 +1,12 @@
+mx\desarrollo\entidad\Alumno_.class
+mx\desarrollo\entidad\Teacherlearningunit_.class
+mx\desarrollo\entidad\Usuario.class
+mx\desarrollo\entidad\Learningunit_.class
+mx\desarrollo\entidad\Teacherlearningunit.class
 mx\desarrollo\entidad\Teacher_.class
 mx\desarrollo\entidad\Alumno.class
-mx\desarrollo\entidad\Alumno_.class
 mx\desarrollo\entidad\Administrator.class
-mx\desarrollo\entidad\Learningunit_.class
+mx\desarrollo\entidad\Usuario_.class
 mx\desarrollo\entidad\Teacher.class
 mx\desarrollo\entidad\Administrator_.class
 mx\desarrollo\entidad\Learningunit.class

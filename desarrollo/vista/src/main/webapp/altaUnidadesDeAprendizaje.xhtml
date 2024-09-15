@@ -12,7 +12,7 @@ and open the template in the editor.
       >
     <h:head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
-        <link href="./resources/style.css" rel="stylesheet">
+        <link href="./resources/style.css" rel="stylesheet"/>
         <title>Unidades de Aprendizaje</title>
     </h:head>
     <h:body>
@@ -40,7 +40,7 @@ and open the template in the editor.
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="consultaUnidadesDeAprendizaje.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bx-collection' style="font-size: 3em; color: white;"/>
                         <h3>Consultar Unidades de aprendizaje</h3>
@@ -62,27 +62,27 @@ and open the template in the editor.
                 <div class="subForma">
                     <div class="campo">
                         <p:outputLabel for="nombreUnidad" class="labelText">Nombre de Unidad de Aprendizaje</p:outputLabel>
-                        <p:inputText id="nombreUnidad" class="textInput" autocomplete="false"/>
+                        <p:inputText id="nombreUnidad" class="textInput" autocomplete="false" value="#{learningUI.nombre}"/>
                     </div>
                     
                     <div class="campo">
                         <p:outputLabel for="horasClase" class="labelText">Horas de clase</p:outputLabel>
-                        <p:inputNumber id="horasClase" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="2" size="5"/>
+                        <p:inputNumber id="horasClase" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="2" size="5" value="#{learningUI.horasClase}"/>
                     </div>
                     
                     <div class="campo">
                         <p:outputLabel for="horasTaller" class="labelText">Horas de taller</p:outputLabel>
-                        <p:inputNumber id="horasTaller" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="2" size="5"/>
+                        <p:inputNumber id="horasTaller" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="2" size="5" value="#{learningUI.horasTaller}"/>
                     </div>
                     
                     <div class="campo">
                         <p:outputLabel for="horasLaboratorio" class="labelText">Horas de laboratorio</p:outputLabel>
-                        <p:inputNumber id="horasLaboratorio" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="0" size="5" placeholder="Opcional" />
+                        <p:inputNumber id="horasLaboratorio" autocomplete="false" class="numberInput" decimalPlaces="0" maxValue="8" minValue="0" size="5" placeholder="Opcional" value="#{learningUI.horasLab}" />
                     </div>
                 </div>
                 
                 <div class="botones">
-                    <p:commandButton value="Aceptar" disabled="false" class="boton col-1"/>
+                    <p:commandButton value="Aceptar" disabled="false" class="boton col-1" action='#{learningUI.saveUnidadAprendizaje(learningUI.nombre,learningUI.horasClase, learningUI.horasTaller, learningUI.horasLab)}'/>
                     <p:commandButton value="Cancelar" class="boton col-2"/>
                 </div>
             </h:form>

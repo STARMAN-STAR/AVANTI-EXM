@@ -42,7 +42,7 @@ and open the template in the editor.
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="consultaUnidadesDeAprendizaje.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bx-collection' style="font-size: 3em; color: white;"/>
                         <h3>Consultar Unidades de aprendizaje</h3>
@@ -61,7 +61,7 @@ and open the template in the editor.
             <h:form class="Forma">
                 <h2>Consulta de Unidades De Aprendizaje</h2>
                 
-                <p:dataTable class="tabla" scrollable='true' value="#{UAUI.learningunits}" var="learningunit">
+                <p:dataTable class="tabla" scrollable='true' value="#{learningUI.learningunits}" var="learningunit">
                     <p:column width="20%">
                         <f:facet name="header">ID</f:facet>
                         #{learningunit.id}
