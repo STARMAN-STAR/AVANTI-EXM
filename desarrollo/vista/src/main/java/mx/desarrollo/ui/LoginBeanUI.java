@@ -14,6 +14,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import mx.desarrollo.entidad.Administrator;
+import mx.desarrollo.entidad.Teacher;
 import mx.desarrollo.helper.LoginHelper;
 
 /**
@@ -23,8 +24,9 @@ import mx.desarrollo.helper.LoginHelper;
 @ManagedBean(name = "loginUI")
 @SessionScoped
 public class LoginBeanUI implements Serializable{
-  private LoginHelper loginHelper;
+    private LoginHelper loginHelper;
     private Administrator admin;
+    private Teacher teacher;
     
     public LoginBeanUI() {
         loginHelper = new LoginHelper();
@@ -33,18 +35,21 @@ public class LoginBeanUI implements Serializable{
     @PostConstruct
     public void init(){
         admin= new Administrator();
+        teacher = new Teacher();
     }
 
      public void login() throws IOException{
         String appURL = "/index.xhtml";
-        // los atributos de usuario vienen del xhtml 
         Administrator us= new Administrator();
+        Teacher aux = new Teacher();
         us.setId(0);
-        loginHelper.Login(admin.getEmail(), admin.getPassword());
-          if(us != null && us.getId()!=null){
+        aux.setId(0);
+        aux= loginHelper.LoginTeacher(aux.getUsername(), aux.getPassword());
+        us = loginHelper.Login(admin.getEmail(), admin.getPassword());
+        if(us != null && us.getId()!= null){
             // asigno el usuario encontrado al usuario de esta clase para que 
             // se muestre correctamente en la pagina de informacion
-            admin=us;
+            admin = us;
             FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + appURL);
         }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Usuario o contraseña incorrecta:", "Intente de nuevo"));          

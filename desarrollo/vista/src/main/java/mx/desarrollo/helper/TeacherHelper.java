@@ -28,4 +28,8 @@ public class TeacherHelper implements Serializable {
     public void updateTeacher(Teacher teacher){
         ServiceFacadeLocator.getInstanceFacadeTeacher().updateTeacher(teacher);
     }
+    
+    public Teacher find(String username){
+        return ServiceFacadeLocator.getInstanceFacadeTeacher().findTeacher(username);
+    }
 }
