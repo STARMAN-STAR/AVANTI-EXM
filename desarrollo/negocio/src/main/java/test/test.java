@@ -4,43 +4,20 @@
  * and open the template in the editor.
  */
 package test;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import static java.time.temporal.TemporalQueries.localDate;
-import mx.desarrollo.entidad.Teacher;
-import mx.desarrollo.integracion.ServiceFacadeLocator;
-import java.util.Date;
+import java.util.List;
 import mx.desarrollo.entidad.*;
+import mx.desarrollo.integracion.ServiceFacadeLocator;
 /**
  *
  * @author STARDUST
  */
 public class test {
-     public static void main(String[] args) {
-//       Administrator admin=  new DelegateAdministrator().auth("admin3@example.com", "password789");   
-//       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
-// Administrator admin=  new FacadeAdministrator().auth("admin3@example.com", "password789");   
-//       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
-//      Administrator admin=  ServiceFacadeLocator.getInstanceFacadeAdministrator().auth("admin3@example.com", "password789");   
-//       System.out.println("BIENVENIDO ADMINITRADOR:"+admin.getEmail());
-//        ServiceFacadeLocator.getInstanceFacadeTeacher().getAllTeacher().forEach((teacher) -> {
-//            System.out.println(teacher.getUsername()+" "+teacher.getId());
-//                 });
-//        ServiceFacadeLocator.getInstanceFacadeTeacher().deleteTeacher("juanperez");
-
-//        ServiceFacadeLocator.getInstanceFacadeAdministrator(new Administrator(1,"Juan", "Pérez"));
-//        
-//        
-//    try{
-//    ServiceFacadeLocator.getInstanceLearningUnit().saveLearningUnit(new Learningunit(0, "Programacion Orientada a Objetos", 5, 3 , 4));
-//    }catch(Exception e){
-//        
-//    }    
-//            ServiceFacadeLocator.getInstanceLearningUnit().deleteLearningUnit("Calculo Integral");
-//        
-        ServiceFacadeLocator.getInstanceLearningUnit().getNamesLearningUnits().forEach((unit)->{
-            System.out.println(unit);
-        });
-     }
+    public static void main(String[] args) {
+        Teacher ts=ServiceFacadeLocator.getInstanceFacadeTeacher().findTeacher("laurasanchez");
+        Learningunit lu = ServiceFacadeLocator.getInstanceLearningUnit().find("Calculo Integral");
+        ServiceFacadeLocator.getInstanceFacadeTeacherUnit().conectTeacherUnit(ts, lu);
+        List<Learningunit> tlu = ServiceFacadeLocator.getInstanceFacadeTeacherUnit().getLUnitByTeacher(ts);
+        tlu.forEach((unit)->{System.out.println("NOMBRE DEL PROFESOR "+ts.getFirstName()+"UNIDADES ACADEMICAS "+unit.getName());});
+        
+    }
 }

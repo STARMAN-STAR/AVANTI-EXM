@@ -2,7 +2,9 @@ mx\desarrollo\facade\FacadeTeacher.class
 mx\desarrollo\facade\FacadeLearningUnit.class
 mx\desarrollo\delegate\DelegateTeacher.class
 mx\desarrollo\delegate\DelegateLearningUnit.class
+mx\desarrollo\facade\FacadeTeacherUnit.class
 mx\desarrollo\delegate\DelegateAdministrator.class
 test\test.class
+mx\desarrollo\delegate\DelegateTeacherLunit.class
 mx\desarrollo\facade\FacadeAdministrator.class
 mx\desarrollo\integracion\ServiceFacadeLocator.class

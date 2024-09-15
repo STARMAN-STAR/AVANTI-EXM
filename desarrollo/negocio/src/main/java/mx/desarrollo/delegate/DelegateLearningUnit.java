@@ -19,7 +19,8 @@ public class DelegateLearningUnit {
     }
     
     public Learningunit find(String name){
-       for(Learningunit unit : ServiceLocator.getInstanceLearningUnitDAO().findAll())
+       List<Learningunit> aux=  ServiceLocator.getInstanceLearningUnitDAO().findAll();
+       for(Learningunit unit : aux)
           if(unit.getName().equals(name))
               return unit;
       
@@ -32,7 +33,8 @@ public class DelegateLearningUnit {
     
     public List<String> getAllNamesLearningUnits(){
         List<String> names= new ArrayList<>();
-        for(Learningunit lu : ServiceLocator.getInstanceLearningUnitDAO().findAll())
+        List<Learningunit> aux=  ServiceLocator.getInstanceLearningUnitDAO().findAll();
+        for(Learningunit lu : aux)
             names.add(lu.getName());
         return names;
     }
