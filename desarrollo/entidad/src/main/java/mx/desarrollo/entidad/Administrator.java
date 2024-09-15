@@ -6,9 +6,10 @@
 package mx.desarrollo.entidad;
 
 import java.io.Serializable;
-
+<<<<<<< HEAD
 import javax.persistence.*;
 import java.time.Instant;
+=======
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,16 +20,16 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-
+>>>>>>> origin/feature/business
 
 /**
  *
  * @author STARDUST
  */
 @Entity
-
+<<<<<<< HEAD
 public class Administrator implements Serializable {
-
+=======
 @Table(name = "administrator")
 @XmlRootElement
 @NamedQueries({
@@ -40,7 +41,7 @@ public class Administrator implements Serializable {
 public class Administrator implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+>>>>>>> origin/feature/business
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
