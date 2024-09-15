@@ -5,7 +5,6 @@
  */
 package mx.desarrollo.integracion;
 import mx.desarrollo.DAO.*;
-import mx.desarrollo.entidad.LearningUnit;
 
 /**
  *
@@ -13,14 +12,14 @@ import mx.desarrollo.entidad.LearningUnit;
  */
 public class ServiceLocator {
     private static final TeacherDAO teacherDAO = new TeacherDAO();
-    private static final AdministratorDAO administratorDAO = new AdministratorDAO();
+    private static final administratorDAO administratorDAO = new administratorDAO();
     private static final LearningUnitDAO learningUnitDAO = new LearningUnitDAO();
 
     public static TeacherDAO getInstanceTeacherDAO(){
         return teacherDAO;
     }
 
-    public static AdministratorDAO getInstanceAdministratorDAO(){
+    public static administratorDAO getInstanceAdministratorDAO(){
         return administratorDAO;
     }
 

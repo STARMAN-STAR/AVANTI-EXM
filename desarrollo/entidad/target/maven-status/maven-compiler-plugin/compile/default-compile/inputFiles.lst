@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\TeacherLearningUnit.java
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Alumno_1.java
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Administrator.java
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Usuario_1.java
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\LearningUnit.java
 D:\Bibliotecas\Nueva carpeta (4)\GEMA-SUAP\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Teacher.java
+=======
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Alumno.java
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Teacherlearningunit.java
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Usuario.java
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Administrator.java
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Learningunit.java
+C:\Users\STARDUST\Documents\GitHub\AVANTI-EXM\desarrollo\entidad\src\main\java\mx\desarrollo\entidad\Teacher.java
+>>>>>>> origin/feature/business

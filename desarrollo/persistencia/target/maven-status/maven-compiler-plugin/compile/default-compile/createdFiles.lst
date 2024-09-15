@@ -1,5 +1,12 @@
 mx\desarrollo\integracion\ServiceLocator.class
 mx\desarrollo\persistencia\HibernateUtil.class
+<<<<<<< HEAD
+=======
+mx\desarrollo\DAO\AlumnoDAO.class
+mx\desarrollo\DAO\TeacherDAO.class
+mx\desarrollo\DAO\LearningUnitDAO.class
+mx\desarrollo\DAO\administratorDAO.class
+>>>>>>> origin/feature/business
 mx\desarrollo\test\test.class
 mx\desarrollo\persistencia\InterfaceDAO.class
 mx\desarrollo\persistencia\AbstractDAO.class

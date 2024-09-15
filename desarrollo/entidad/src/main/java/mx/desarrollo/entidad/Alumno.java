@@ -25,18 +25,16 @@ import javax.xml.bind.annotation.XmlTransient;
  *
  * @author STARDUST
  */
-//CAMBIO GENERAL BRANCH
-
 @Entity
 @Table(name = "alumno")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Alumno_1.findAll", query = "SELECT a FROM Alumno_1 a")
-    , @NamedQuery(name = "Alumno_1.findByIdalumno", query = "SELECT a FROM Alumno_1 a WHERE a.idalumno = :idalumno")
-    , @NamedQuery(name = "Alumno_1.findByMatricula", query = "SELECT a FROM Alumno_1 a WHERE a.matricula = :matricula")
-    , @NamedQuery(name = "Alumno_1.findByNombre", query = "SELECT a FROM Alumno_1 a WHERE a.nombre = :nombre")
-    , @NamedQuery(name = "Alumno_1.findByApellidos", query = "SELECT a FROM Alumno_1 a WHERE a.apellidos = :apellidos")})
-public class Alumno_1 implements Serializable {
+    @NamedQuery(name = "Alumno.findAll", query = "SELECT a FROM Alumno a")
+    , @NamedQuery(name = "Alumno.findByIdalumno", query = "SELECT a FROM Alumno a WHERE a.idalumno = :idalumno")
+    , @NamedQuery(name = "Alumno.findByMatricula", query = "SELECT a FROM Alumno a WHERE a.matricula = :matricula")
+    , @NamedQuery(name = "Alumno.findByNombre", query = "SELECT a FROM Alumno a WHERE a.nombre = :nombre")
+    , @NamedQuery(name = "Alumno.findByApellidos", query = "SELECT a FROM Alumno a WHERE a.apellidos = :apellidos")})
+public class Alumno implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -54,16 +52,16 @@ public class Alumno_1 implements Serializable {
     @Column(name = "apellidos")
     private String apellidos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAlumno")
-    private List<Usuario_1> usuarioList;
+    private List<Usuario> usuarioList;
 
-    public Alumno_1() {
+    public Alumno() {
     }
 
-    public Alumno_1(Integer idalumno) {
+    public Alumno(Integer idalumno) {
         this.idalumno = idalumno;
     }
 
-    public Alumno_1(Integer idalumno, int matricula, String nombre, String apellidos) {
+    public Alumno(Integer idalumno, int matricula, String nombre, String apellidos) {
         this.idalumno = idalumno;
         this.matricula = matricula;
         this.nombre = nombre;
@@ -103,11 +101,11 @@ public class Alumno_1 implements Serializable {
     }
 
     @XmlTransient
-    public List<Usuario_1> getUsuarioList() {
+    public List<Usuario> getUsuarioList() {
         return usuarioList;
     }
 
-    public void setUsuarioList(List<Usuario_1> usuarioList) {
+    public void setUsuarioList(List<Usuario> usuarioList) {
         this.usuarioList = usuarioList;
     }
 
@@ -121,10 +119,10 @@ public class Alumno_1 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Alumno_1)) {
+        if (!(object instanceof Alumno)) {
             return false;
         }
-        Alumno_1 other = (Alumno_1) object;
+        Alumno other = (Alumno) object;
         if ((this.idalumno == null && other.idalumno != null) || (this.idalumno != null && !this.idalumno.equals(other.idalumno))) {
             return false;
         }
@@ -133,7 +131,7 @@ public class Alumno_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.desarrollo.entidad.Alumno_1[ idalumno=" + idalumno + " ]";
+        return "mx.desarrollo.entidad.Alumno[ idalumno=" + idalumno + " ]";
     }
-    // Mi primer commint
+    
 }

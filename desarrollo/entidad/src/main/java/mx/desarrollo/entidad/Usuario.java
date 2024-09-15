@@ -27,11 +27,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "usuario")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Usuario_1.findAll", query = "SELECT u FROM Usuario_1 u")
-    , @NamedQuery(name = "Usuario_1.findByCorreo", query = "SELECT u FROM Usuario_1 u WHERE u.correo = :correo")
-    , @NamedQuery(name = "Usuario_1.findByIdusuario", query = "SELECT u FROM Usuario_1 u WHERE u.idusuario = :idusuario")
-    , @NamedQuery(name = "Usuario_1.findByContrasena", query = "SELECT u FROM Usuario_1 u WHERE u.contrasena = :contrasena")})
-public class Usuario_1 implements Serializable {
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")
+    , @NamedQuery(name = "Usuario.findByCorreo", query = "SELECT u FROM Usuario u WHERE u.correo = :correo")
+    , @NamedQuery(name = "Usuario.findByIdusuario", query = "SELECT u FROM Usuario u WHERE u.idusuario = :idusuario")
+    , @NamedQuery(name = "Usuario.findByContrasena", query = "SELECT u FROM Usuario u WHERE u.contrasena = :contrasena")})
+public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Basic(optional = false)
@@ -47,16 +47,16 @@ public class Usuario_1 implements Serializable {
     private String contrasena;
     @JoinColumn(name = "idAlumno", referencedColumnName = "idalumno")
     @ManyToOne(optional = false)
-    private Alumno_1 idAlumno;
+    private Alumno idAlumno;
 
-    public Usuario_1() {
+    public Usuario() {
     }
 
-    public Usuario_1(Integer idusuario) {
+    public Usuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 
-    public Usuario_1(Integer idusuario, String correo, String contrasena) {
+    public Usuario(Integer idusuario, String correo, String contrasena) {
         this.idusuario = idusuario;
         this.correo = correo;
         this.contrasena = contrasena;
@@ -86,11 +86,11 @@ public class Usuario_1 implements Serializable {
         this.contrasena = contrasena;
     }
 
-    public Alumno_1 getIdAlumno() {
+    public Alumno getIdAlumno() {
         return idAlumno;
     }
 
-    public void setIdAlumno(Alumno_1 idAlumno) {
+    public void setIdAlumno(Alumno idAlumno) {
         this.idAlumno = idAlumno;
     }
 
@@ -104,10 +104,10 @@ public class Usuario_1 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Usuario_1)) {
+        if (!(object instanceof Usuario)) {
             return false;
         }
-        Usuario_1 other = (Usuario_1) object;
+        Usuario other = (Usuario) object;
         if ((this.idusuario == null && other.idusuario != null) || (this.idusuario != null && !this.idusuario.equals(other.idusuario))) {
             return false;
         }
@@ -116,7 +116,7 @@ public class Usuario_1 implements Serializable {
 
     @Override
     public String toString() {
-        return "mx.desarrollo.entidad.Usuario_1[ idusuario=" + idusuario + " ]";
+        return "mx.desarrollo.entidad.Usuario[ idusuario=" + idusuario + " ]";
     }
     
 }

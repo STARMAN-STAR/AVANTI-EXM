@@ -11,19 +11,20 @@ import mx.desarrollo.facade.*;
  * @author STARDUST
  */
 public class ServiceFacadeLocator {
-    private static final FacadeAdministrator facadeAdministrator = new FacadeAdministrator();
-    private static final FacadeLearningUnit facadeLearningUnit = new FacadeLearningUnit();
-    private static final FacadeTeacher facadeTeacher = new FacadeTeacher();
+    private static FacadeAdministrator facadeAdministrator;
+    private static FacadeLearningUnit facadeLearningUnit;
+    private static FacadeTeacher facadeTeacher;
 
     public static FacadeAdministrator getInstanceFacadeAdministrator() {
-        return facadeAdministrator;
+        return (facadeAdministrator == null) ? facadeAdministrator = new FacadeAdministrator() : facadeAdministrator;
     }
 
     public static FacadeLearningUnit getInstanceLearningUnit() {
-        return facadeLearningUnit;
+        return (facadeLearningUnit == null) ? facadeLearningUnit = new FacadeLearningUnit() : facadeLearningUnit;
     }
 
     public static FacadeTeacher getInstanceFacadeTeacher() {
-        return facadeTeacher;
+        return (facadeTeacher == null) ? facadeTeacher = new FacadeTeacher() : facadeTeacher;
+
     }
 }
