@@ -33,7 +33,7 @@ public class test {
 //        
 //        
 //    try{
-//    ServiceFacadeLocator.getInstanceLearningUnit().saveLearningUnit(new Learningunit(0, "Calculo Integral", 24, 12 , 13));
+    ServiceFacadeLocator.getInstanceLearningUnit().saveLearningUnit(new Learningunit(0, "Programacion Orientada a Objetos", 5, 3 , 4));
 //    }catch(Exception e){
 //        
 //    }    
