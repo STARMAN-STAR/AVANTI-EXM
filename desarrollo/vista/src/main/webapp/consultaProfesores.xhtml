@@ -67,10 +67,10 @@
                         
                         
                 
-                <p:commandButton value="Actualizar Profesores"  />
+                        <p:commandButton value="Actualizar Profesores" action="#{Profesor.modificarSelecionado(profesor)}"/>
 
                
-                <p:dataTable id="tablaProfesores" var="profesor" value="#{Profesor.teachers}" rowExpandMode="multiple">
+                        <p:dataTable id="tablaProfesores" var="profesor" value="#{Profesor.teachers}" rowExpandMode="multiple" selectionMode="single" rowKey="#{profesor.id}" selection="#{profesor}">
                     <f:facet name="header">
                       Profesores
                     </f:facet>
