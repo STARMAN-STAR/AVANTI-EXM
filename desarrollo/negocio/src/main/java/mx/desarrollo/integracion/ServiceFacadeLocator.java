@@ -4,33 +4,32 @@
  * and open the template in the editor.
  */
 package mx.desarrollo.integracion;
-import mx.desarrollo.facade.FacadeAlumno;
-import mx.desarrollo.facade.FacadeUsuario;
+import mx.desarrollo.facade.*;
+
 /**
  *
  * @author STARDUST
  */
 public class ServiceFacadeLocator {
-       private static FacadeAlumno facadeAlumno;
-    private static FacadeUsuario facadeUsuario;
-    
-    public static FacadeAlumno getInstanceFacadeAlumno() {
-        if (facadeAlumno == null) {
-            facadeAlumno = new FacadeAlumno();
-            return facadeAlumno;
-        } else {
-            return facadeAlumno;
-        }
+    private static FacadeAdministrator facadeAdministrator;
+    private static FacadeLearningUnit facadeLearningUnit;
+    private static FacadeTeacher facadeTeacher;
+    private static FacadeTeacherUnit facadeTeacherUnit;
+
+    public static FacadeAdministrator getInstanceFacadeAdministrator() {
+        return (facadeAdministrator == null) ? facadeAdministrator = new FacadeAdministrator() : facadeAdministrator;
+    }
+
+    public static FacadeLearningUnit getInstanceLearningUnit() {
+        return (facadeLearningUnit == null) ? facadeLearningUnit = new FacadeLearningUnit() : facadeLearningUnit;
+    }
+
+    public static FacadeTeacher getInstanceFacadeTeacher() {
+        return (facadeTeacher == null) ? facadeTeacher = new FacadeTeacher() : facadeTeacher;
+
     }
     
-    public static FacadeUsuario getInstanceFacadeUsuario() {
-        if (facadeUsuario == null) {
-            facadeUsuario = new FacadeUsuario();
-            return facadeUsuario;
-        } else {
-            return facadeUsuario;
-        }
-    }
-    public static void getInstanceFacadeUsuario(){
+    public static FacadeTeacherUnit getInstanceFacadeTeacherUnit(){
+        return (facadeTeacherUnit == null) ? facadeTeacherUnit = new FacadeTeacherUnit() : facadeTeacherUnit;
     }
 }

@@ -4,22 +4,20 @@
  * and open the template in the editor.
  */
 package test;
-import mx.desarrollo.entidad.Usuario_1;
+import java.util.List;
+import mx.desarrollo.entidad.*;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
 /**
  *
  * @author STARDUST
  */
 public class test {
-     public static void main(String[] args) {
-        Usuario_1 usuario = new Usuario_1();
+    public static void main(String[] args) {
+        Teacher ts=ServiceFacadeLocator.getInstanceFacadeTeacher().findTeacher("laurasanchez");
+        Learningunit lu = ServiceFacadeLocator.getInstanceLearningUnit().find("Calculo Integral");
+        ServiceFacadeLocator.getInstanceFacadeTeacherUnit().conectTeacherUnit(ts, lu);
+        List<Learningunit> tlu = ServiceFacadeLocator.getInstanceFacadeTeacherUnit().getLUnitByTeacher(ts);
+        tlu.forEach((unit)->{System.out.println("NOMBRE DEL PROFESOR "+ts.getFirstName()+"UNIDADES ACADEMICAS "+unit.getName());});
         
-        usuario = ServiceFacadeLocator.getInstanceFacadeUsuario().login("contra123","francisco.reyes.parra@uabc.edu.mx");
-        
-        if(usuario.getIdusuario() != null){
-            System.out.println("Login exitoso con el correo: " + usuario.getCorreo());
-        }else{
-            System.out.println("No se encontro registro");
-        }
     }
 }

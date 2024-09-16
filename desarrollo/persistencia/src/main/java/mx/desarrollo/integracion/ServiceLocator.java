@@ -4,31 +4,31 @@
  * and open the template in the editor.
  */
 package mx.desarrollo.integracion;
-import mx.desarrollo.DAO.AlumnoDAO;
-import mx.desarrollo.DAO.UsuarioDAO;
+import mx.desarrollo.DAO.*;
+
 /**
  *
  * @author STARDUST
  */
 public class ServiceLocator {
-    private static AlumnoDAO alumnoDAO;
-    private static UsuarioDAO usuarioDAO;
-    
-    public static AlumnoDAO getInstanceAlumnoDAO(){
-        if(alumnoDAO == null){
-            alumnoDAO = new AlumnoDAO();
-            return alumnoDAO;
-        } else{
-            return alumnoDAO;
-        }
+    private static final TeacherDAO teacherDAO = new TeacherDAO();
+    private static final administratorDAO administratorDAO = new administratorDAO();
+    private static final LearningUnitDAO learningUnitDAO = new LearningUnitDAO();
+    private static final teacherLearningUnitDAO teacherLearningUnitDAO = new teacherLearningUnitDAO();
+
+    public static TeacherDAO getInstanceTeacherDAO(){
+        return teacherDAO;
     }
-  
-    public static UsuarioDAO getInstanceUsuarioDAO(){
-        if(usuarioDAO == null){
-            usuarioDAO = new UsuarioDAO();
-            return usuarioDAO;
-        } else{
-            return usuarioDAO;
-        }
+
+    public static administratorDAO getInstanceAdministratorDAO(){
+        return administratorDAO;
+    }
+
+    public static LearningUnitDAO getInstanceLearningUnitDAO() {
+        return learningUnitDAO;
+    }
+    
+    public static teacherLearningUnitDAO getinstanceTeacherLearningUnitDAO(){
+        return teacherLearningUnitDAO;
     }
 }

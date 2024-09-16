@@ -5,27 +5,61 @@
  */
 package mx.desarrollo.ui;
 
-import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import mx.desarrollo.helper.TeacherHelper;
+import mx.desarrollo.entidad.Teacher;
+import javax.faces.bean.ManagedBean;
+import java.util.List;
 import java.io.Serializable;
 
 /**
  *
  * @author PC
  */
-@Named(value = "Profesor")
+
+@ManagedBean (name = "Profesor")
 @SessionScoped
 public class ProfesorUI implements Serializable {
-    private String nombres;
+    private final TeacherHelper helper; 
+    private List<Teacher> teachers;
+    private Teacher teacher;
+    private String username;
+    private String password;
     private String apellidos;
+    private String nombres;
     private String rfc;
-    private String[] unidadesDeAprendizaje;
     
-    public void subirProfesor() {
-        
+    public ProfesorUI(){
+      helper = new TeacherHelper();
+      this.teachers = helper.getAllTeachers();
+    }
+
+    public void saveTeacher(String nombres, String apellidos, String rfc, String username, String password){
+        helper.saveTeacher(new Teacher(0,nombres,apellidos,rfc,username, password));
     }
     
-    public String getNombres() {
+    public void updateTeacher(String nombres, String apellidos, String rfc, String username, String password){
+        helper.updateTeacher(new Teacher(0,nombres,apellidos,rfc,username, password));
+    }
+    
+    public void deleteTeacher(String username){
+        helper.deleteTeacher(username);
+    }
+    
+    
+    public List<Teacher> getTeachers(){
+        return teachers;
+    }
+    
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+      public String getNombres() {
         return nombres;
     }
 
@@ -48,24 +82,20 @@ public class ProfesorUI implements Serializable {
     public void setRfc(String rfc) {
         this.rfc = rfc;
     }
+    
+    public String getUsername() {
+        return username;
+    }
 
-    public String[] getUnidadesDeAprendizaje() {
-        return unidadesDeAprendizaje;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setUnidadesDeAprendizaje(String[] unidadesDeAprendizaje) {
-        this.unidadesDeAprendizaje = unidadesDeAprendizaje;
+    public String getPassword() {
+        return password;
     }
-    
-    public ProfesorUI() {
-        
+
+    public void setPassword(String password) {
+        this.password = password;
     }
-    
-    public void AltaProfesorUI(String nombres, String apellidos, String rfc, String[] unidadesDeAprendizaje) {
-        this.nombres = nombres;
-        this.apellidos = apellidos;
-        this.rfc = rfc;
-        this.unidadesDeAprendizaje = unidadesDeAprendizaje;
-    }
-    
 }

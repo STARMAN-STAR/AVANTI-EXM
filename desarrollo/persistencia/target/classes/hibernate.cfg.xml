@@ -23,7 +23,11 @@ name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0Conne
 <property name="c3p0.timeout">100</property> 
 <!-- Nota: Aqui deben ir todas las entidades que se formaron de su base de datos 
 en este caso se crearon las siguiente --> 
-<mapping class="mx.desarrollo.entidad.Alumno_1"/> 
-<mapping class="mx.desarrollo.entidad.Usuario_1"/> 
+<mapping class="mx.desarrollo.entidad.Alumno"/> 
+<mapping class="mx.desarrollo.entidad.Learningunit"/>
+<mapping class="mx.desarrollo.entidad.Teacher"/> 
+<mapping class="mx.desarrollo.entidad.Administrator"/> 
+<mapping class="mx.desarrollo.entidad.Usuario"/>
+<mapping class="mx.desarrollo.entidad.Teacherlearningunit"/>  
 </session-factory> 
 </hibernate-configuration>

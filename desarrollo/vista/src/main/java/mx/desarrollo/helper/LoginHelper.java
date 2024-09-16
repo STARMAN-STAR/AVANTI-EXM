@@ -5,11 +5,9 @@
  */
 package mx.desarrollo.helper;
 
-import java.io.IOException;
 import java.io.Serializable;
-import javax.faces.context.FacesContext;
-import mx.desarrollo.entidad.Alumno_1;
-import mx.desarrollo.entidad.Usuario_1;
+import mx.desarrollo.entidad.Administrator;
+import mx.desarrollo.entidad.Teacher;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
 
 /**
@@ -17,8 +15,12 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
  * @author STARDUST
  */
 public class LoginHelper implements Serializable {
-     public Usuario_1 Login(String correo, String password){
-        return ServiceFacadeLocator.getInstanceFacadeUsuario().login(password, correo);
-    }
     
+     public Administrator Login(String correo, String password){
+        return  ServiceFacadeLocator.getInstanceFacadeAdministrator().auth(correo, password);
+    }
+     
+     public Teacher LoginTeacher(String name, String password){
+         return ServiceFacadeLocator.getInstanceFacadeTeacher().authTeacher(name, password);
+     }
 }

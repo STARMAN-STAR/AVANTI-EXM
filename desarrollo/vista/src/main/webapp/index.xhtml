@@ -7,9 +7,49 @@
           
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
+        <link href="./resources/style.css" rel="stylesheet"/>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <div class="leftSide-contenedor">
+                <div class="leftSide">
+                    <a href="altaProfesor.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bxs-contact' style="font-size: 3em; color: white;"/>
+                        <h3>Alta de Profesores</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="#">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-street-view' style="font-size: 3em; color: white;"/>
+                        <h3>Consultar Profesores</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="altaUnidadesDeAprendizaje.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-folder-plus' style="font-size: 3em; color: white;"/>
+                        <h3>Alta de Unidad de Aprendizaje</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="consultaUnidadesDeAprendizaje.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-collection' style="font-size: 3em; color: white;"/>
+                        <h3>Consultar Unidades de aprendizaje</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="login.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bxs-exit' style="font-size: 3em; color: white;"/>
+                        <h3>Cerrar sesión</h3>
+                    </div>
+                    </a>
+                </div>
+            </div>
         <p:panelGrid class="txt">
             <f:facet name="header">  
                 <p:row>
@@ -17,16 +57,16 @@
                 </p:row>
             </f:facet>
             <p:row>
-                <p:column styleClass="celda">Nombre:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.nombre}" /></p:column>
+                <p:column styleClass="celda">ID:</p:column>
+                <p:column><h:outputText value="${loginUI.usuario.id}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Apellido:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.apellidos}" /></p:column>
+                <p:column styleClass="celda">USUARIO:</p:column>
+                <p:column><h:outputText value="#{loginUI.usuario.username}" /></p:column>
             </p:row>
             <p:row>
-                <p:column styleClass="celda">Matricula:</p:column>
-                <p:column><h:outputText value="#{loginUI.usuario.idAlumno.matricula}" /></p:column>
+                <p:column styleClass="celda">EMAIL:</p:column>
+                <p:column><h:outputText value="#{loginUI.usuario.email}" /></p:column>
             </p:row>
         </p:panelGrid>
     </h:body>

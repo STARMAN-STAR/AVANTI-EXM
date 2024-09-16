@@ -4,24 +4,19 @@
  * and open the template in the editor.
  */
 package mx.desarrollo.test;
-
-/**
- *
- * @author STARDUST
- */
-import java.util.ArrayList;
-import java.util.List;
-import mx.desarrollo.DAO.UsuarioDAO;
-import mx.desarrollo.entidad.Usuario_1;
+import mx.desarrollo.DAO.*;
+import mx.desarrollo.entidad.*;
 
 public class test {
-        public static void main(String[] args) {
-        List<Usuario_1> listaUsuarios = new ArrayList();
-        UsuarioDAO usuarioDao = new UsuarioDAO();
-        listaUsuarios = usuarioDao.findAll();
-        
-        for(Usuario_1 us : listaUsuarios){
-            System.out.println("Correo: " + us.getCorreo());
-        }
+    public static void main(String[] args) {
+       for(Teacher admin : new TeacherDAO().findAll()){
+           System.out.println(admin.getFirstName());
+       }
+  for(Alumno admin : new AlumnoDAO().findAll()){
+           System.out.println(admin.getApellidos());
+       }
+  for(Administrator admin : new administratorDAO().findAll()){
+           System.out.println(admin.getEmail());
+       }
     }
 }

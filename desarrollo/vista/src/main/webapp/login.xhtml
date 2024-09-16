@@ -8,43 +8,10 @@
 
     <h:head>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
-        <style>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+        <link href="./resources/login.css" rel="stylesheet"/>
             
-            *{
-                text-align: center;
-            }
-            .center{
-                float: none;
-                margin: 0 auto;
-                
-            }
             
-           
-            div.login{
-                position: absolute;
-                top:0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 35%;
-                width: 25%;
-                padding: 25px;
-                margin: auto;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            }
-            .logo{
-                width: 150px;
-            }
-            .form-control:focus{
-                border-color:#007738;
-            }
-            .btn-success{
-                text-shadow: none;
-            }
-        </style>
     </h:head>
 
     <h:body>
@@ -56,16 +23,24 @@
                      
                 </p:messages>
                 <div class="login">
+                    <p:graphicImage url="resources/uabcl.png" class="logo" />
+                    <h1>Iniciar Sesión</h1>
                     <div class="panel-header">
-                        <p:graphicImage url="resources/uabcl.png" class="logo" />
                     </div>
                     <div class="panel-body">
+                        <div class="panel-form">
+                        
                         <div class=" form-group">
-                            <p:inputText class ="form-control" placeholder ="Correo:" autocomplete="false" value ="#{loginUI.usuario.correo}" />
+                          
+                           <i class='bx bx-home-alt-2' style="font-size: 3em; color: black;"></i>
+                           <p:inputText class ="form-control" placeholder ="Correo Electronico:" autocomplete="false" value ="#{loginUI.usuario.email}" />
                         </div>
+                            <hr style="border: none; height: 2px; background-color: #585757; width: 100%;"></hr>
                         <div class="form-group">
-                            <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.contrasena}" />
+                            <i class='bx bx-lock-alt' style="font-size: 3em; color: black;" ></i>
+                            <p:password class ="form-control" placeholder="Contraseña: " value="#{loginUI.usuario.password}" />
                         </div>
+                            </div>
                         <p:commandButton update="messages" class = "btn btn-success" value ="Iniciar sesion" actionListener ="#{loginUI.login()}" />
 
                     </div>
