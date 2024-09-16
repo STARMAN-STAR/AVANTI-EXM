@@ -21,7 +21,7 @@ public class FacadeTeacherUnit {
         return teacherunit.getAllTeacherUnits();
     }
     
-    public void conectTeacherUnit(Teacher teacher , Learningunit unit){
+    public void conectTeacherUnit(Teacher teacher , List<Learningunit> unit){
         teacherunit.conectTeacherUnit( teacher, unit);
     }
      public List<Learningunit> getLUnitByTeacher(Teacher teacher){

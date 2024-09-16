@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package test;
+import java.util.ArrayList;
 import java.util.List;
 import mx.desarrollo.entidad.*;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
@@ -14,10 +15,14 @@ import mx.desarrollo.integracion.ServiceFacadeLocator;
 public class test {
     public static void main(String[] args) {
         Teacher ts=ServiceFacadeLocator.getInstanceFacadeTeacher().findTeacher("laurasanchez");
-        Learningunit lu = ServiceFacadeLocator.getInstanceLearningUnit().find("Calculo Integral");
+        List<Learningunit> lu = new ArrayList();
+        lu.add(ServiceFacadeLocator.getInstanceLearningUnit().find("Matemáticas"));
+        lu.add(ServiceFacadeLocator.getInstanceLearningUnit().find("Física"));
+
         ServiceFacadeLocator.getInstanceFacadeTeacherUnit().conectTeacherUnit(ts, lu);
+        
         List<Learningunit> tlu = ServiceFacadeLocator.getInstanceFacadeTeacherUnit().getLUnitByTeacher(ts);
-        tlu.forEach((unit)->{System.out.println("NOMBRE DEL PROFESOR "+ts.getFirstName()+"UNIDADES ACADEMICAS "+unit.getName());});
+        tlu.forEach((unit)->{System.out.println("NOMBRE DEL PROFESOR "+ts.getFirstName()+" UNIDADES ACADEMICAS "+unit.getName());});
         
     }
 }
