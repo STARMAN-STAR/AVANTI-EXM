@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+          
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+        <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
+
+        <title>Modificar Profesores</title>
+    </h:head>
+    
+    <h:body>
+        <div class="contenedorPrincipal">
+            <div class="leftSide-contenedor">
+                <div class="leftSide">
+                    <a href="#">
+                    <div class="contenidoLeft">
+                        <i class='bx bxs-contact' style="font-size: 3em; color: white;"/>
+                        <h3>Alta de Profesores</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="#">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-street-view' style="font-size: 3em; color: white;"/>
+                        <h3>Consultar Profesores</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="altaUnidadesDeAprendizaje.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-folder-plus' style="font-size: 3em; color: white;"/>
+                        <h3>Alta de Unidad de Aprendizaje</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="consultaUnidadesDeAprendizaje.xhtml">
+                    <div class="contenidoLeft">
+                        <i class='bx bx-collection' style="font-size: 3em; color: white;"/>
+                        <h3>Consultar Unidades de aprendizaje</h3>
+                    </div>
+                    </a>
+                    
+                    <a href="#">
+                    <div class="contenidoLeft">
+                        <i class='bx bxs-exit' style="font-size: 3em; color: white;"/>
+                        <h3>Cerrar sesión</h3>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            
+        <h:form class="Forma">
+            <h2>Modificar Profesores</h2>
+            
+            <div class="subForma">
+                
+            <div class="campo">
+                <p:outputLabel for="nombreUnidad" class="labelText">Nombre Unidad Academica</p:outputLabel>
+                <p:inputText id="nombreUnidad" class="textInput" autocomplete="false" />
+            </div>
+                
+            <div class="campo">
+                <p:outputLabel for="horasClase" class="labelText">Horas Clase</p:outputLabel>
+                <p:inputText id="horasClase" class="textInput" autocomplete="false" />
+            </div>
+                
+            <div class="campo">
+                <p:outputLabel for="horasTaller" class="labelText">Horas Taller</p:outputLabel>
+                <p:inputText id="horasTaller" class="textInput" autocomplete="false" />
+            </div>
+            
+            <div class="campo">
+                <p:outputLabel for="horasLaboratorio" class="labelText">Horas Laboratorio</p:outputLabel>
+                <p:inputText id="horasLaboratorio" class="textInput" autocomplete="false" />
+            </div>
+               <!--  
+            <div class="campo">
+              
+                <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
+                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="">
+                </p:selectCheckboxMenu>
+            </div>
+                -->
+            </div>
+            
+            <div class="botones">
+                <p:commandButton value="Aceptar" disabled="false" class="boton col-1" />
+                <p:commandButton value="Cancelar" class="boton col-2"/>
+            </div>
+            
+        </h:form>
+        </div>
+       
+    </h:body>
+</html>

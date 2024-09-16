@@ -60,31 +60,31 @@ and open the template in the editor.
             </div>
             
         <h:form class="Forma">
-            <h2>Alta de Profesores</h2>
+            <h2>Modificacion De Profesor</h2>
             
             <div class="subForma">
                 
             <div class="campo">
                 <p:outputLabel for="nombreProfesor" class="labelText">Nombre del profesor</p:outputLabel>
-                <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value="#{Profesor.nombres}"/>
+                <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value=""/>
             </div>
                 
             <div class="campo">
                 <p:outputLabel for="apellidoProfesor" class="labelText">Apellido del profesor</p:outputLabel>
-                <p:inputText id="apellidoProfesor" class="textInput" autocomplete="false" value="#{Profesor.apellidos}">
+                <p:inputText id="apellidoProfesor" class="textInput" autocomplete="false" value=""/>
             </div>
                 
             <div class="campo">
                 <p:outputLabel for="rfcProfesor" class="labelText">RFC del profesor</p:outputLabel>
-                <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value="#{Profesor.rfc}"/>
+                <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value=""/>
             </div>
-                
+               <!-- 
             <div class="campo">
                 <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
-                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="#{Profesor.unidadesDeAprendizaje}">
+                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="">
                 </p:selectCheckboxMenu>
             </div>
-                
+                --> 
             </div>
             
             <div class="botones">
