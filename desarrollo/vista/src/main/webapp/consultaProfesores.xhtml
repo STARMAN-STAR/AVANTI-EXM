@@ -10,8 +10,9 @@
 
     <h:head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
-        <title>Consulta</title>
+        <link href="./resources/style.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Consulta Profesores</title>
     </h:head>
     
     
@@ -19,14 +20,14 @@
         <div class="contenedorPrincipal">
         <div class="leftSide-contenedor">
                 <div class="leftSide">
-                    <a href="#">
+                    <a href="altaProfesor.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bxs-contact' style="font-size: 3em; color: white;"/>
                         <h3>Alta de Profesores</h3>
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="consultaProfesores.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bx-street-view' style="font-size: 3em; color: white;"/>
                         <h3>Consultar Profesores</h3>
@@ -40,16 +41,14 @@
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="consultaUnidadesDeAprendizaje.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bx-collection' style="font-size: 3em; color: white;"/>
                         <h3>Consultar Unidades de aprendizaje</h3>
                     </div>
                     </a>
                     
-                    <a href="#">
-                        
-                        
+                    <a href="login.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bxs-exit' style="font-size: 3em; color: white;"/>
                         <h3>Cerrar sesión</h3>
@@ -71,38 +70,31 @@
                 <p:commandButton value="Actualizar Profesores"  />
 
                
-                <p:dataTable id="tablaProfesores" var="profesor" value="" rowExpandMode="multiple">
+                <p:dataTable id="tablaProfesores" var="profesor" value="#{Profesor.teachers}" rowExpandMode="multiple">
                     <f:facet name="header">
                       Profesores
                     </f:facet>
-
-                   
-                    
-
                     
                     <p:column headerText="Nombre" >
-                        <h:outputText value="" />
+                           #{profesor.firstName}
                     </p:column>
-
                     <p:column headerText="Apellidos" width="20%">
-                        <h:outputText value="" />
+                        #{profesor.lastName}
                     </p:column>
 
                     <p:column headerText="RFC" width="10%">
-                        <h:outputText value="" />
+                        #{profesor.rfc}
                     </p:column>
                     
                     <p:column style="width:16px" headerText="Unidades Academicas" width="40%">
                         <p:rowToggler />
                     </p:column>
-
-                    
                     <p:rowExpansion>
-                        
                         <h:panelGrid columns="1" cellpadding="5" title="Unidades Incritas" bodyrows="tbody" >
                             <ui:repeat value="" var="unidad">
-                               
-                                <p:column colspan="10">BBB</p:column>
+                                <p:column colspan="10">
+                                    #{teacherUnit.teacherUnits(profesor.username)}
+                                </p:column>
                                 <h:outputText value="" />
                             </ui:repeat>
                         </h:panelGrid>
