@@ -66,8 +66,10 @@
                     <h:form id="profesorForm">
                         
                         
-                
-                        <p:commandButton value="Actualizar Profesores" action="#{Profesor.modificarSelecionado(profesor)}"/>
+                        <div class="botones" style="margin-bottom: 1cm;">
+                            <p:commandButton class="boton col-3" value="Modificar" action="#{Profesor.modificarSelecionado(profesor)}"/>
+                            <p:commandButton class="boton col-2" value="Eliminar"/>
+                        </div>
 
                
                         <p:dataTable id="tablaProfesores" var="profesor" value="#{Profesor.teachers}" rowExpandMode="multiple" selectionMode="single" rowKey="#{profesor.id}" selection="#{profesor}">

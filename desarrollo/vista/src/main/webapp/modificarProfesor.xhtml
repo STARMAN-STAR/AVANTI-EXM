@@ -65,7 +65,7 @@ and open the template in the editor.
                     </a>
                 </div>
             </div>
-            
+            #{Profesor.inicializarCampos()}
         <h:form class="Forma">
             <h2>Modificar de Profesores</h2>
             
@@ -109,7 +109,7 @@ and open the template in the editor.
             
             <div class="botones">
                 <p:commandButton value="Aceptar" disabled="false" class="boton col-1" action="#{Profesor.saveTeacher(Profesor.nombres, Profesor.apellidos, Profesr.rfc, Profesor.username, Profesor.password, learningUI.learningunits)}"/>
-                <p:commandButton value="Cancelar" class="boton col-2"/>
+                <p:commandButton value="Cancelar" class="boton col-2" action="#{Profesor.inicializarCampos()}"/>
             </div>
             
         </h:form>

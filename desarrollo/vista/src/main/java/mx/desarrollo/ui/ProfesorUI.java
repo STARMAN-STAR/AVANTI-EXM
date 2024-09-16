@@ -5,6 +5,7 @@
  */
 package mx.desarrollo.ui;
 
+import java.io.IOException;
 import mx.desarrollo.entidad.Teacherlearningunit;
 import javax.enterprise.context.SessionScoped;
 import mx.desarrollo.helper.teacherUnitHelper;
@@ -14,6 +15,11 @@ import mx.desarrollo.entidad.Teacher;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.io.Serializable;
+import java.util.Map;
+import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
+import mx.desarrollo.entidad.Administrator;
+import mx.desarrollo.helper.LoginHelper;
 
 /**
  *
@@ -26,6 +32,7 @@ public class ProfesorUI implements Serializable {
     private List<Teacherlearningunit> tlearningunit;
     private final teacherUnitHelper helperLUNIT;
     private final TeacherHelper helper; 
+    private int selectedId;
     private List<Teacher> teachers;
     private String apellidos;
     private String username;
@@ -34,7 +41,10 @@ public class ProfesorUI implements Serializable {
     private String nombres;
     private String rfc;
     
+    private LoginHelper loginHelper;
+    
     public ProfesorUI(){
+      loginHelper = new LoginHelper(); 
       helper = new TeacherHelper();
       helperLUNIT = new teacherUnitHelper();
       this.teachers = helper.getAllTeachers();
@@ -47,6 +57,36 @@ public class ProfesorUI implements Serializable {
         password="";
         nombres="";
         rfc="";
+    }
+    
+    @PostConstruct
+    public void init(){
+        teacher = new Teacher();
+    }
+    
+    public void inicializarCampos() {
+        Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        nombres = params.get("firstName");
+        apellidos = params.get("lastName");
+        username = params.get("username");
+        password = params.get("password");
+        rfc = params.get("rfc");
+
+        System.out.println(rfc);
+    }
+    
+    public void modificarSelecionado(Teacher ti) throws IOException {
+        String url = "/modificarProfesor.xhtml";
+        String fullUrl = url + "?firstName=" + ti.getFirstName() + "&lastName=" + ti.getLastName()
+                         + "&username=" + ti.getUsername() + "&password=" + ti.getPassword() 
+                         + "&rfc=" + ti.getRfc();
+        System.out.println(ti.getFirstName() + ti.getLastName() + ti.getUsername() + ti.getPassword());
+        
+        if (ti.getUsername() != null) {
+            this.teacher = loginHelper.LoginTeacher(ti.getUsername(), ti.getPassword());
+            
+            FacesContext.getCurrentInstance().getExternalContext().redirect(FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + fullUrl);
+        }
     }
     
     public void saveTeacher(String nombres, String apellidos, String rfc, String username, String password, List<Learningunit> unit){
