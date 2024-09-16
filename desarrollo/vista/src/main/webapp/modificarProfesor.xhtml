@@ -14,7 +14,6 @@ and open the template in the editor.
     <h:head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
         <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
-
         <title>Modificar Profesores</title>
     </h:head>
     
@@ -22,8 +21,12 @@ and open the template in the editor.
         <div class="contenedorPrincipal">
             <div class="leftSide-contenedor">
                 <div class="leftSide">
-                    <a href="#">
-                    <div class="contenidoLeft">
+                    <a href="altaProfesor.xhtml">
+                    <div c  
+                         
+                         
+                         ss="contenidoLeft
+                            
                         <i class='bx bxs-contact' style="font-size: 3em; color: white;"/>
                         <h3>Alta de Profesores</h3>
                     </div>
@@ -50,7 +53,7 @@ and open the template in the editor.
                     </div>
                     </a>
                     
-                    <a href="#">
+                    <a href="login.xhtml">
                     <div class="contenidoLeft">
                         <i class='bx bxs-exit' style="font-size: 3em; color: white;"/>
                         <h3>Cerrar sesión</h3>
@@ -60,31 +63,31 @@ and open the template in the editor.
             </div>
             
         <h:form class="Forma">
-            <h2>Modificacion De Profesor</h2>
+            <h2>Modificar Profesores</h2>
             
             <div class="subForma">
                 
             <div class="campo">
                 <p:outputLabel for="nombreProfesor" class="labelText">Nombre del profesor</p:outputLabel>
-                <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value=""/>
+                <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value="#{Profesor.nombres}"/>
             </div>
                 
             <div class="campo">
                 <p:outputLabel for="apellidoProfesor" class="labelText">Apellido del profesor</p:outputLabel>
-                <p:inputText id="apellidoProfesor" class="textInput" autocomplete="false" value=""/>
+                <p:inputText id="apellidoProfesor" class="textInput" autocomplete="false" value="#{Profesor.apellidos}"/>
             </div>
                 
             <div class="campo">
                 <p:outputLabel for="rfcProfesor" class="labelText">RFC del profesor</p:outputLabel>
-                <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value=""/>
+                <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value="#{Profesor.rfc}"/>
             </div>
-               <!-- 
+                
             <div class="campo">
                 <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
-                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="">
+                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="#{learningUI.learningunits}">
                 </p:selectCheckboxMenu>
             </div>
-                --> 
+                
             </div>
             
             <div class="botones">

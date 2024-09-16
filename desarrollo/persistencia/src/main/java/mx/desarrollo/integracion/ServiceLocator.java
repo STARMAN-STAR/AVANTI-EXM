@@ -14,6 +14,7 @@ public class ServiceLocator {
     private static final TeacherDAO teacherDAO = new TeacherDAO();
     private static final administratorDAO administratorDAO = new administratorDAO();
     private static final LearningUnitDAO learningUnitDAO = new LearningUnitDAO();
+    private static final teacherLearningUnitDAO teacherLearningUnitDAO = new teacherLearningUnitDAO();
 
     public static TeacherDAO getInstanceTeacherDAO(){
         return teacherDAO;
@@ -25,5 +26,9 @@ public class ServiceLocator {
 
     public static LearningUnitDAO getInstanceLearningUnitDAO() {
         return learningUnitDAO;
+    }
+    
+    public static teacherLearningUnitDAO getinstanceTeacherLearningUnitDAO(){
+        return teacherLearningUnitDAO;
     }
 }

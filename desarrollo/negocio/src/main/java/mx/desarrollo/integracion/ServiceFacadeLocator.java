@@ -14,6 +14,7 @@ public class ServiceFacadeLocator {
     private static FacadeAdministrator facadeAdministrator;
     private static FacadeLearningUnit facadeLearningUnit;
     private static FacadeTeacher facadeTeacher;
+    private static FacadeTeacherUnit facadeTeacherUnit;
 
     public static FacadeAdministrator getInstanceFacadeAdministrator() {
         return (facadeAdministrator == null) ? facadeAdministrator = new FacadeAdministrator() : facadeAdministrator;
@@ -26,5 +27,9 @@ public class ServiceFacadeLocator {
     public static FacadeTeacher getInstanceFacadeTeacher() {
         return (facadeTeacher == null) ? facadeTeacher = new FacadeTeacher() : facadeTeacher;
 
+    }
+    
+    public static FacadeTeacherUnit getInstanceFacadeTeacherUnit(){
+        return (facadeTeacherUnit == null) ? facadeTeacherUnit = new FacadeTeacherUnit() : facadeTeacherUnit;
     }
 }

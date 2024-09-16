@@ -8,7 +8,8 @@ import java.util.List;
 public class DelegateTeacher {
     
     public Teacher auth(String username, String password) {
-      for(Teacher teacher: ServiceLocator.getInstanceTeacherDAO().findAll())
+      List<Teacher> aux= ServiceLocator.getInstanceTeacherDAO().findAll();
+      for(Teacher teacher: aux)
           if(teacher.getUsername().equals(username) && teacher.getPassword().equals(password))
               return teacher;
       
@@ -16,7 +17,8 @@ public class DelegateTeacher {
     }
     
     public Teacher find(String username){
-        for(Teacher teacher: ServiceLocator.getInstanceTeacherDAO().findAll())
+        List<Teacher> aux= ServiceLocator.getInstanceTeacherDAO().findAll();
+        for(Teacher teacher: aux)
           if(teacher.getUsername().equalsIgnoreCase(username))
               return teacher;
         
@@ -35,8 +37,8 @@ public class DelegateTeacher {
        ServiceLocator.getInstanceTeacherDAO().update(teacher);
     }
     
-    public void delete(String nombre){
-        ServiceLocator.getInstanceTeacherDAO().delete(find(nombre));
+    public void delete(String username){
+        ServiceLocator.getInstanceTeacherDAO().delete(find(username));
     }
     
     public List<Teacher> getAllTeachers(){

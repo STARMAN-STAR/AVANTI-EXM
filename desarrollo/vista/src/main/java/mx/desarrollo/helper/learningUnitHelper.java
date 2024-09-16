@@ -25,4 +25,8 @@ public class learningUnitHelper implements Serializable{
     public List<String> getLearningNames(){
         return ServiceFacadeLocator.getInstanceLearningUnit().getNamesLearningUnits();
     }
+    
+    public Learningunit find(String name){
+        return ServiceFacadeLocator.getInstanceLearningUnit().find(name);
+    }
 }
