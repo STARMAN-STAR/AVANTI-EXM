@@ -62,25 +62,25 @@ and open the template in the editor.
                 <h2>Consulta de Unidades De Aprendizaje</h2>
                 
                 <p:dataTable class="tabla" scrollable='true' value="#{learningUI.learningunits}" var="learningunit">
-                    <p:column width="20%">
+                    <p:column width="20%" style="background: white">
                         <f:facet name="header">ID</f:facet>
                         #{learningunit.id}
                     </p:column>
-                    <p:column width="50%">
+                    <p:column width="50%" style="background: white">
                         <f:facet name="header">Unidad de Aprendizaje</f:facet>
                         #{learningunit.name}
                     </p:column>
-                    <p:column width="10%">
+                    <p:column width="10%" style="background: white">
                         <f:facet name="header">Horas de Clase</f:facet>
                         #{learningunit.classHours}
 
                     </p:column>
-                    <p:column width="10%">
+                    <p:column width="10%" style="background: white">
                         <f:facet name="header">Horas de Taller</f:facet>
                         #{learningunit.workshopHours}
 
                     </p:column>
-                    <p:column width="10%">
+                    <p:column width="10%" style="background: white">
                         <f:facet name="header">Horas de Laboratorio</f:facet>
                         #{learningunit.laboratoryHours}
                     </p:column>

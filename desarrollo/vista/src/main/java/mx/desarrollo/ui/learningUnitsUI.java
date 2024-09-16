@@ -14,19 +14,20 @@ import java.util.ArrayList;
 import javax.inject.Named;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 /**
  *
  * @author PC
  */
 @ManagedBean (name= "learningUI")
-@SessionScoped
+@ViewScoped
 public class learningUnitsUI implements Serializable {
     private List<Learningunit> learningunits;
     private List<String> learningnames;
     private Learningunit learningunit;
     private String nombre;
-    private int horasClase;
-    private int horasTaller;
+    private int horasClase = 2;
+    private int horasTaller = 2;
     private int horasLab;
     
     private final learningUnitHelper helper;
@@ -36,7 +37,15 @@ public class learningUnitsUI implements Serializable {
         this.learningunits = helper.getLearningUnits();
         this.learningnames= helper.getLearningNames();
     }
-
+    
+    public void limpiarCampos() {
+        nombre = "";
+        horasClase = 2;
+        horasTaller = 2;
+        horasLab = 0;
+        System.out.println("Limpiando");
+    }
+    
     public List<String> getLearningnames() {
         return learningnames;
     }
@@ -95,6 +104,8 @@ public class learningUnitsUI implements Serializable {
     
     public void saveUnidadAprendizaje(String nombre, int horasClase, int horasTaller, int horasLaboratorio){
         helper.saveLearningUnit(new Learningunit(0,nombre,horasClase,horasTaller, horasLaboratorio));
+        limpiarCampos();
+        System.out.println("guardado");
     }
     
     

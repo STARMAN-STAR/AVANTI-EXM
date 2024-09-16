@@ -56,13 +56,15 @@ and open the template in the editor.
                 </div>
             </div>
             
-            <h:form class="Forma">
+            <h:form class="Forma" id="form">
                 <h2>Alta de Unidades de Aprendizaje</h2>
                 
                 <div class="subForma">
                     <div class="campo">
                         <p:outputLabel for="nombreUnidad" class="labelText">Nombre de Unidad de Aprendizaje</p:outputLabel>
-                        <p:inputText id="nombreUnidad" class="textInput" autocomplete="false" value="#{learningUI.nombre}"/>
+                        <p:inputText id="nombreUnidad" class="textInput" autocomplete="false" value="#{learningUI.nombre}">
+                            <p:ajax event="keyup" process="@this" update="btnAceptar"/>
+                        </p:inputText>
                     </div>
                     
                     <div class="campo">
@@ -82,10 +84,15 @@ and open the template in the editor.
                 </div>
                 
                 <div class="botones">
-                    <p:commandButton value="Aceptar" disabled="false" class="boton col-1" action='#{learningUI.saveUnidadAprendizaje(learningUI.nombre,learningUI.horasClase, learningUI.horasTaller, learningUI.horasLab)}'/>
-                    <p:commandButton value="Cancelar" class="boton col-2"/>
+                    <p:commandButton disabled="#{empty learningUI.nombre}" id="btnAceptar" value="Aceptar" class="boton col-1" action='#{learningUI.saveUnidadAprendizaje(learningUI.nombre,learningUI.horasClase, learningUI.horasTaller, learningUI.horasLab)}' onclick="PF('dlgConfirm').show()" update=":form"/>
+                    <p:commandButton value="Cancelar" class="boton col-2" actionListener="#{learningUI.limpiarCampos()}" update=":form"/>
                 </div>
+                
+                
             </h:form>
+            <p:confirmDialog id="Confirm" header="Confirmación" widgetVar="dlgConfirm" message="La Unidad De Aprendizaje fue añadida correctamente!">
+                    <p:button value="Ok" onclick="PF('dlgConfirm').hide()"/>
+                </p:confirmDialog>
         </div>
     </h:body>
     
