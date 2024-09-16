@@ -37,8 +37,8 @@ public class DelegateTeacher {
        ServiceLocator.getInstanceTeacherDAO().update(teacher);
     }
     
-    public void delete(String nombre){
-        ServiceLocator.getInstanceTeacherDAO().delete(find(nombre));
+    public void delete(String username){
+        ServiceLocator.getInstanceTeacherDAO().delete(find(username));
     }
     
     public List<Teacher> getAllTeachers(){

@@ -5,16 +5,14 @@
  */
 package mx.desarrollo.ui;
 
-import javax.enterprise.context.SessionScoped;
-import mx.desarrollo.entidad.Learningunit;
 import mx.desarrollo.helper.learningUnitHelper;
-import javax.annotation.PostConstruct;
-import java.io.Serializable;
-import java.util.ArrayList;
-import javax.inject.Named;
-import java.util.List;
+import mx.desarrollo.helper.teacherUnitHelper;
+import mx.desarrollo.entidad.Learningunit;
+import mx.desarrollo.entidad.Teacherlearningunit;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import java.io.Serializable;
+import java.util.List;
 /**
  *
  * @author PC
@@ -31,12 +29,13 @@ public class learningUnitsUI implements Serializable {
     private int horasLab;
     
     private final learningUnitHelper helper;
+    
 
     public learningUnitsUI() {
         helper = new learningUnitHelper();
         this.learningunits = helper.getLearningUnits();
-        this.learningnames= helper.getLearningNames();
     }
+
     
     public void limpiarCampos() {
         nombre = "";
@@ -102,11 +101,12 @@ public class learningUnitsUI implements Serializable {
         this.horasLab = horasLab;
     }
     
+   
+    
     public void saveUnidadAprendizaje(String nombre, int horasClase, int horasTaller, int horasLaboratorio){
         helper.saveLearningUnit(new Learningunit(0,nombre,horasClase,horasTaller, horasLaboratorio));
         limpiarCampos();
         System.out.println("guardado");
     }
-    
-    
+
 }

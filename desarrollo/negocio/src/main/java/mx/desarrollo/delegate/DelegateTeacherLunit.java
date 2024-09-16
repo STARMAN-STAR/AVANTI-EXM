@@ -18,27 +18,33 @@ public class DelegateTeacherLunit {
         return ServiceLocator.getinstanceTeacherLearningUnitDAO().findAll();
     }
     
-    public void conectTeacherUnit(Teacher teacher, Learningunit unit){
+    public void conectTeacherUnit(Teacher teacher, List<Learningunit> unit){
         Teacherlearningunit ts= new Teacherlearningunit();
         ts.setId(0);
         ts.setTeacherId(teacher);
-        ts.setLearningUnitId(unit.getId());
-        try{
-            ServiceLocator.getinstanceTeacherLearningUnitDAO().save(ts);
-        }catch(Exception e){
-            System.out.println("FAIL");
-        }
+        
+        unit.forEach(lUnits->{
+            try{
+                ts.setLearningUnitId(lUnits.getId());
+                ServiceLocator.getinstanceTeacherLearningUnitDAO().save(ts);
+            }catch(Exception e){
+                System.out.println("FAIL CANT SAVE "+ lUnits.getName());
+            }
+        });
     }
     
     public List<Learningunit> getLUnitByTeacher(Teacher teacher){
         List<Learningunit> aux = new ArrayList();
         List<Learningunit> tlu = ServiceLocator.getInstanceLearningUnitDAO().findAll();
-        int idteacher=teacher.getId();
-        for(Learningunit ls : tlu)
-        for(Teacherlearningunit tl : ServiceLocator.getinstanceTeacherLearningUnitDAO().findAll())   
-            if(ls.getId() == tl.getLearningUnitId() && idteacher == tl.getTeacherId().getId()){
+        List<Teacherlearningunit> tls = ServiceLocator.getinstanceTeacherLearningUnitDAO().findAll();
+        
+        tlu.forEach((ls)->{
+            tls.forEach((tl)->{
+                if(ls.getId() == tl.getLearningUnitId() && teacher.getId() == tl.getTeacherId().getId())
                 aux.add(ls);
-            }
+            });
+        });
+            
         return aux;
     }
 }
