@@ -5,7 +5,10 @@
  */
 package mx.desarrollo.ui;
 
+import mx.desarrollo.entidad.Teacherlearningunit;
 import javax.enterprise.context.SessionScoped;
+import mx.desarrollo.helper.teacherUnitHelper;
+import mx.desarrollo.entidad.Learningunit;
 import mx.desarrollo.helper.TeacherHelper;
 import mx.desarrollo.entidad.Teacher;
 import javax.faces.bean.ManagedBean;
@@ -20,22 +23,36 @@ import java.io.Serializable;
 @ManagedBean (name = "Profesor")
 @SessionScoped
 public class ProfesorUI implements Serializable {
+    private List<Teacherlearningunit> tlearningunit;
+    private final teacherUnitHelper helperLUNIT;
     private final TeacherHelper helper; 
     private List<Teacher> teachers;
-    private Teacher teacher;
+    private String apellidos;
     private String username;
     private String password;
-    private String apellidos;
+    private Teacher teacher;
     private String nombres;
     private String rfc;
     
     public ProfesorUI(){
       helper = new TeacherHelper();
+      helperLUNIT = new teacherUnitHelper();
       this.teachers = helper.getAllTeachers();
+      this.tlearningunit = helperLUNIT.getTeacherUnits();
     }
 
-    public void saveTeacher(String nombres, String apellidos, String rfc, String username, String password){
+    public void limpiarCampos(){
+        apellidos="";
+        username="";
+        password="";
+        nombres="";
+        rfc="";
+    }
+    
+    public void saveTeacher(String nombres, String apellidos, String rfc, String username, String password, List<Learningunit> unit){
+        limpiarCampos();
         helper.saveTeacher(new Teacher(0,nombres,apellidos,rfc,username, password));
+        helperLUNIT.conectTeacherUnit(helper.find(username), unit);
     }
     
     public void updateTeacher(String nombres, String apellidos, String rfc, String username, String password){
@@ -97,5 +114,13 @@ public class ProfesorUI implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+     public List<Teacherlearningunit> getTlearningunit() {
+        return tlearningunit;
+    }
+
+    public void setTlearningunit(List<Teacherlearningunit> tlearningunit) {
+        this.tlearningunit = tlearningunit;
     }
 }

@@ -25,7 +25,7 @@ public class teacherUnitHelper implements Serializable{
         return ServiceFacadeLocator.getInstanceFacadeTeacherUnit().getLUnitByTeacher(teacher);
     }
     
-    public void conectTeacherUnit(Teacher teacher, Learningunit unit){
+    public void conectTeacherUnit(Teacher teacher, List<Learningunit> unit){
         ServiceFacadeLocator.getInstanceFacadeTeacherUnit().conectTeacherUnit(teacher, unit);
     }
     
