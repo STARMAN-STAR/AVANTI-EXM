@@ -18,7 +18,7 @@ import javax.faces.bean.ManagedBean;
  *
  * @author PC
  */
-@ManagedBean (name= "learningUI")
+@ManagedBean (name= "XD")
 @SessionScoped
 public class learningUnitsUI implements Serializable {
     private List<Learningunit> learningunits;
@@ -31,12 +31,18 @@ public class learningUnitsUI implements Serializable {
     
     private final learningUnitHelper helper;
 
+    
+     
     public learningUnitsUI() {
         helper = new learningUnitHelper();
         this.learningunits = helper.getLearningUnits();
         this.learningnames= helper.getLearningNames();
     }
-
+    
+ 
+          
+    
+    
     public List<String> getLearningnames() {
         return learningnames;
     }
