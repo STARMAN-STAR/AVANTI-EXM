@@ -146,10 +146,15 @@ a {
 
 .col-1 {
     background: #007141;
-    color: white
+    color: white;
 }
 
 .col-2 {
     background: red;
-    color: white
+    color: white;
+}
+
+.col-3 {
+    background: #F1A631;
+    color: white;
 }
