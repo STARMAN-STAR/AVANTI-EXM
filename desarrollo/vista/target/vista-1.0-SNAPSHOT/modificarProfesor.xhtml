@@ -13,13 +13,21 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
-        <link href="./resources/style.css" rel="stylesheet" type="text/css"/>
-        <title>Modificar Profesores</title>
+        <link href="./resources/style.css" rel="stylesheet"/>
+        <title>Modificar de profesores</title>
+        <style>
+            .subForma {
+                height: 70%;
+                 display: flex;
+                 width: 100%;
+                 justify-content: space-evenly;
+             }
+        </style>
     </h:head>
     
     <h:body>
         <div class="contenedorPrincipal">
-            <div class="leftSide-contenedor">
+ <div class="leftSide-contenedor">
                 <div class="leftSide">
                     <a href="altaProfesor.xhtml">
                     <div class="contenidoLeft">
@@ -57,12 +65,12 @@ and open the template in the editor.
                     </a>
                 </div>
             </div>
-            
+            #{Profesor.inicializarCampos()}
         <h:form class="Forma">
-            <h2>Modificar Profesores</h2>
+            <h2>Modificar de Profesores</h2>
             
             <div class="subForma">
-                
+            <div>
             <div class="campo">
                 <p:outputLabel for="nombreProfesor" class="labelText">Nombre del profesor</p:outputLabel>
                 <p:inputText id="nombreProfesor" class="textInput" autocomplete="false" value="#{Profesor.nombres}"/>
@@ -77,18 +85,31 @@ and open the template in the editor.
                 <p:outputLabel for="rfcProfesor" class="labelText">RFC del profesor</p:outputLabel>
                 <p:inputText id="rfcProfesor" class="textInput" autocomplete="false" value="#{Profesor.rfc}"/>
             </div>
-                
+            </div>
+            <div>
             <div class="campo">
-                <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
-                                      style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" value="#{learningUI.learningunits}">
-                </p:selectCheckboxMenu>
+                <p:outputLabel for="usernameProfesor" class="labelText">Nombre de usuario del profesor</p:outputLabel>
+                <p:inputText id="usernameProfesor" class="textInput" autocomplete="false" value="#{Profesor.username}"/>
+            </div>
+                <div class="campo">
+                    <p:outputLabel for="passwordProfesor" class="labelText">Contraseña del profesor</p:outputLabel>
+                    <p:inputText id="passwordProfesor" class="textInput" autocomplete="false" value="#{Profesor.password}"/>
+                </div>
+
+                <div class="campo">
+                    <p:selectCheckboxMenu label="Unidades de Aprendizaje" updateLabel="true" id="seleccion" filter="true" filterMatchMode="startsWith"
+                                          style="width: 8cm" panelStyle="width: 8cm" scrollHeight="250" class="checkMenu" >
+                        <f:selectItems value="#{learningUI.learningunits}">
+                        </f:selectItems>
+                    </p:selectCheckboxMenu>
+                </div>
             </div>
                 
             </div>
             
             <div class="botones">
-                <p:commandButton value="Aceptar" disabled="false" class="boton col-1" />
-                <p:commandButton value="Cancelar" class="boton col-2"/>
+                <p:commandButton value="Aceptar" disabled="false" class="boton col-1" action="#{Profesor.updateTeacher(Profesor.nombres, Profesor.apellidos, Profesr.rfc, Profesor.username, Profesor.password)}"/>
+                <p:commandButton value="Cancelar" class="boton col-2" action="#{Profesor.inicializarCampos()}"/>
             </div>
             
         </h:form>
