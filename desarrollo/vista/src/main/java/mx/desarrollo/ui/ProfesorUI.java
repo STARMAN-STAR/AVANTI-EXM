@@ -34,6 +34,7 @@ public class ProfesorUI implements Serializable {
     private final TeacherHelper helper; 
     private int selectedId;
     private List<Teacher> teachers;
+    private int id;
     private String apellidos;
     private String username;
     private String password;
@@ -59,18 +60,15 @@ public class ProfesorUI implements Serializable {
         rfc="";
     }
     
-    @PostConstruct
-    public void init(){
-        teacher = new Teacher();
-    }
-    
     public void inicializarCampos() {
         Map<String, String> params = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         nombres = params.get("firstName");
         apellidos = params.get("lastName");
-        username = params.get("username");
-        password = params.get("password");
-        rfc = params.get("rfc");
+        username= params.get("username");
+        password=params.get("password");
+        rfc=params.get("rfc");
+        
+        teacher = helper.find(username);
 
         System.out.println(rfc);
     }
@@ -79,7 +77,7 @@ public class ProfesorUI implements Serializable {
         String url = "/modificarProfesor.xhtml";
         String fullUrl = url + "?firstName=" + ti.getFirstName() + "&lastName=" + ti.getLastName()
                          + "&username=" + ti.getUsername() + "&password=" + ti.getPassword() 
-                         + "&rfc=" + ti.getRfc();
+                         + "&rfc=" + ti.getRfc() + "&ID=" + ti.getId().toString();
         System.out.println(ti.getFirstName() + ti.getLastName() + ti.getUsername() + ti.getPassword());
         
         if (ti.getUsername() != null) {
@@ -96,7 +94,8 @@ public class ProfesorUI implements Serializable {
     }
     
     public void updateTeacher(String nombres, String apellidos, String rfc, String username, String password){
-        helper.updateTeacher(new Teacher(0,nombres,apellidos,rfc,username, password));
+        id = helper.find(username).getId();
+        helper.updateTeacher(new Teacher(id,nombres,apellidos,rfc,username,password));
     }
     
     public void deleteTeacher(String username){

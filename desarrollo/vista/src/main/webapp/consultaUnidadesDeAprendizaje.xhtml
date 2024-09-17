@@ -58,10 +58,14 @@ and open the template in the editor.
                 </div>
             </div>
         
-            <h:form class="Forma">
+            <h:form class="Forma" id="form">
                 <h2>Consulta de Unidades De Aprendizaje</h2>
                 
-                <p:dataTable class="tabla" scrollable='true' value="#{learningUI.learningunits}" var="learningunit">
+                <div class="botones" style="margin-bottom: 1cm;">
+                    <p:commandButton class="boton col-2" value="Eliminar" action="#{learningUI.deleteUnidadAprendizaje(learningunit.name)}" update="tablaUnidades"/>
+                </div>
+                
+                <p:dataTable rowKey="#{learningunit.id}" class="tabla" scrollable='true' value="#{learningUI.learningunits}" var="learningunit" selectionMode="single" selection="#{learningunit}" id="tablaUnidades">
                     <p:column width="20%">
                         <f:facet name="header">ID</f:facet>
                         #{learningunit.id}

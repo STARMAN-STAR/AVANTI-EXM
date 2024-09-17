@@ -63,12 +63,12 @@
             
            <div class="subForma">
                
-                    <h:form id="profesorForm">
+               <h:form id="profesorForm">
                         
                         
                         <div class="botones" style="margin-bottom: 1cm;">
                             <p:commandButton class="boton col-3" value="Modificar" action="#{Profesor.modificarSelecionado(profesor)}"/>
-                            <p:commandButton class="boton col-2" value="Eliminar"/>
+                            <p:commandButton class="boton col-2" value="Eliminar" action="#{Profesor.deleteTeacher(profesor.username)}" update="profesorForm"/>
                         </div>
 
                

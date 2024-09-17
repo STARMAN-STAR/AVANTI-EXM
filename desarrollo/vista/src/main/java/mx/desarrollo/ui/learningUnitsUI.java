@@ -108,5 +108,9 @@ public class learningUnitsUI implements Serializable {
         limpiarCampos();
         System.out.println("guardado");
     }
+    
+    public void deleteUnidadAprendizaje(String unidad) {
+        helper.deleteLearningUnit(unidad);
+    }
 
 }

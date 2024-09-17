@@ -26,6 +26,7 @@ public class TeacherHelper implements Serializable {
     }
     
     public void updateTeacher(Teacher teacher){
+        System.out.println(teacher.getLastName() + " " + teacher.getRfc());
         ServiceFacadeLocator.getInstanceFacadeTeacher().updateTeacher(teacher);
     }
     
