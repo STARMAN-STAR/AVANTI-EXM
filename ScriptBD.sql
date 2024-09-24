@@ -38,5 +38,7 @@ CREATE TABLE IF NOT EXISTS Administrator (
 );
 
 INSERT INTO Administrator (username, password, email) VALUES
+('root', '1234', 'example@example.com'),
 ('alexander villaman', '1234', 'francisco.villaman@gmail.com');
+
 
